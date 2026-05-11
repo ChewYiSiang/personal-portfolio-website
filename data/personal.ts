@@ -8,21 +8,21 @@
 export const personal = {
   name: 'Chew Yi Siang',
   tagline: 'Building the Future of Data & Intelligence.',
-  roles: ['Computer Science Student', 'Data Engineer', 'ML Enthusiast'],
+  roles: ['Computer Science Student', 'Curious Learner', 'ML Enthusiast'],
   location: 'Singapore · SUTD',
-  email: 'yisiang@example.com',
+  email: 'chewyisiang123@gmail.com',
   available: true,
   availabilityNote: 'Available for internships & projects',
 
   social: {
-    linkedin: 'https://linkedin.com/in/yourprofile',
-    github: 'https://github.com/yourusername',
-    whatsapp: 'https://wa.me/6512345678',
+    linkedin: 'https://www.linkedin.com/in/yi-siang-chew-617576212/',
+    github: 'https://github.com/ChewYiSiang',
+    whatsapp: 'https://wa.me/6591885071',
   },
 
   stats: [
     { value: '3+', label: 'Projects' },
-    { value: '2+', label: 'Internships' },
+    { value: '1', label: 'Internships' },
     { value: '∞',  label: 'Learning' },
   ],
 

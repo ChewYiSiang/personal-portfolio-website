@@ -21,34 +21,16 @@ export const experience: ExperienceEntry[] = [
   {
     role: 'Data Analytics Intern',
     company: 'NCS Group',
-    period: 'May 2024 – Aug 2024',
+    period: 'Sep 2022 – Feb 2023',
     type: 'Internship',
     description:
-      'Built automated ETL workflows using Python and SQL, cutting manual reporting time by 60%. Developed Tableau dashboards for enterprise clients and contributed to business intelligence solutions across cross-functional teams.',
+      'Assisted in developing end-to-end data pipelines for data extraction, preprocessing, and analytics support. Collaborated with cross-functional teams to design data workflows and define analytics requirements and specifications.',
     highlights: [
-      'Automated ETL pipelines in Python + SQL — 60% faster reporting cycles',
-      'Developed Tableau dashboards adopted by 3+ business units',
-      'Collaborated with engineering teams on BI solution architecture',
-      'Performed exploratory data analysis on large operational datasets',
+      'Created On-boarding documentation and user guides for data pipelines, enabling seamless knowledge transfer and ensuring smooth handover to the team.'
     ],
-    tech: ['Python', 'SQL', 'Tableau', 'Power BI', 'Excel'],
+    tech: ['Python', 'SQL', 'Tableau', 'Excel', 'Powerpoint'],
     accent: '#00f5ff',
-  },
-  {
-    role: 'Freelance Data Analyst',
-    company: 'Self-employed',
-    period: '2023 – Present',
-    type: 'Freelance',
-    description:
-      'Delivered data analysis and visualisation services for small businesses — custom dashboards, automated reporting scripts, and exploratory data analysis for strategic decision-making.',
-    highlights: [
-      'Delivered 5+ end-to-end data analytics projects',
-      'Built automated Python reporting pipelines for recurring insights',
-      'Designed client-facing interactive dashboards (Plotly / Streamlit)',
-    ],
-    tech: ['Python', 'Pandas', 'Matplotlib', 'Plotly', 'Streamlit', 'Excel'],
-    accent: '#bf00ff',
-  },
+  }
   // ─── Add more roles below ─────────────────────────────────────────────────
   // {
   //   role: 'Software Engineering Intern',
