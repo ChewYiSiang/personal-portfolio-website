@@ -47,7 +47,7 @@ export default function ParticlesBackground() {
         outModes: { default: 'bounce' },
       },
       number: {
-        density: { enable: true, area: isMobile ? 1200 : 900 },
+        density: { enable: false },
         value: isMobile ? 38 : 80,
       },
       opacity: {
