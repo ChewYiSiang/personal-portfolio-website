@@ -1,0 +1,72 @@
+---
+title: "SustainFit"
+description: "A hackathon project using computer vision and ML to promote sustainable fashion choices and reduce textile waste."
+date: "March 2024"
+tags: ["Python", "TensorFlow", "Computer Vision", "FastAPI", "React", "Docker"]
+status: "Completed"
+github: "https://github.com/yourusername/sustainfit"
+demo: ""
+math: true
+---
+
+## Overview
+
+SustainFit is a hackathon project born out of **SustainHack 2024**, addressing the growing environmental impact of fast fashion. The platform uses computer vision to classify garments and estimate their carbon footprint, then recommends sustainable alternatives.
+
+## The Problem
+
+The fashion industry accounts for roughly 10% of global carbon emissions — more than all international flights and maritime shipping combined. Consumers lack accessible tools to understand the environmental cost of their wardrobe choices.
+
+## Architecture
+
+```
+User Upload → EfficientNetV2 Classifier → Carbon Score Engine → Recommendation API
+```
+
+1. **Image Classifier** — Fine-tuned EfficientNetV2 (92% top-1 accuracy)
+2. **Carbon Score Engine** — Estimates footprint from material type and country of origin
+3. **Recommendation API** — Surfaces sustainable alternatives from a curated database
+
+## Model Training
+
+```python
+import tensorflow as tf
+
+def build_classifier(num_classes: int) -> tf.keras.Model:
+    base = tf.keras.applications.EfficientNetV2B0(
+        include_top=False,
+        weights='imagenet',
+        input_shape=(224, 224, 3)
+    )
+    base.trainable = False  # freeze for transfer learning
+
+    model = tf.keras.Sequential([
+        base,
+        tf.keras.layers.GlobalAveragePooling2D(),
+        tf.keras.layers.Dropout(0.3),
+        tf.keras.layers.Dense(256, activation='relu'),
+        tf.keras.layers.Dense(num_classes, activation='softmax'),
+    ])
+    return model
+```
+
+## Carbon Score Formula
+
+$$C_{total} = C_{material} \times W_{garment} + C_{transport} \times D_{origin} + C_{disposal}$$
+
+Where:
+- $C_{material}$ = carbon coefficient per kg of fabric (kg CO₂ / kg)
+- $W_{garment}$ = weight of the garment in kg
+- $C_{transport}$ = shipping emissions coefficient
+- $D_{origin}$ = distance from country of origin (km)
+- $C_{disposal}$ = end-of-life disposal emissions
+
+## Results
+
+- **92%** top-1 classification accuracy on held-out test set
+- **60+ garment categories** supported out of the box
+- **Top Finalist** placement at SustainHack 2024 (40+ teams)
+
+## Lessons Learned
+
+Working under a 24-hour deadline forced ruthless prioritisation. We shipped the CV pipeline first, layered on scoring, then built the UI. The biggest challenge was handling real-world image diversity — lighting variance and partial occlusion both hit model confidence hard.
