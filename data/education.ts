@@ -23,12 +23,10 @@ export const education: EducationEntry[] = [
     institution: 'Singapore University of Technology and Design',
     shortName: 'SUTD',
     degree: 'Bachelor of Engineering (Computer Science)',
-    period: '2024 – Present',
+    period: '2025 – Present',
     status: 'Current',
     achievements: [
-      'Specialisation in AI & Data Systems',
-      'SUTD Merit Scholarship (placeholder)',
-      "Dean's List (placeholder)",
+      ''
     ],
     courses: ['Machine Learning', 'Data Structures', 'Distributed Systems', 'Algorithm Design'],
     accent: '#00f5ff',
@@ -38,14 +36,12 @@ export const education: EducationEntry[] = [
     institution: 'Nanyang Polytechnic',
     shortName: 'NYP',
     degree: 'Diploma in Business Intelligence & Analytics',
-    period: '2021 – 2024',
+    period: '2020 – 2023',
     status: 'Graduated',
     achievements: [
-      'GPA: [Your GPA] / 4.0',
-      "Director's List (placeholder)",
       'Best Capstone Project Award (placeholder)',
     ],
-    courses: ['Business Analytics', 'Data Mining', 'SQL & Databases', 'Tableau / Power BI'],
+    courses: ["Big Data Analytics Project", "Predictive Modeling", "Big Data Management", "Business Analytics Project", "Data Science Project", "Text & Rich Media Analytics", "AI Technologies", "Data Structures & Algorithm", "Analytics & Financial Service"],
     accent: '#bf00ff',
   },
   {
@@ -53,14 +49,18 @@ export const education: EducationEntry[] = [
     institution: 'Serangoon Secondary School',
     shortName: 'SSS',
     degree: 'GCE O-Level Certificate',
-    period: '2017 – 2020',
+    period: '2016 – 2020',
     status: 'Graduated',
     achievements: [
-      'L1R5: [Your Score]',
-      'Mathematics Excellence Award (placeholder)',
-      'IT Club Chairperson',
+      "Edusave Award for achievement, good leadership and service (EAGLES) 2019",
+      "National Youth Achievement Silver Award (NYAA) 2019",
+      "Edusave Award for achievement, good leadership and service (EAGLES) 2018",
+      "National Youth Achievement Bronze Award (NYAA) 2017",
+      "UNSW Global Merit in ICAS Mathematics 2017",
+      "STEM inc Young Engineer Bronze Award 2016"
+
     ],
-    courses: ['Additional Mathematics', 'Physics', 'Chemistry', 'Computer Applications'],
+    courses: ['Additional Mathematics', 'Physics', 'Chemistry'],
     accent: '#555555',
   },
 ]
