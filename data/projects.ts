@@ -115,7 +115,7 @@ export const projects: Project[] = [
   {
     slug: 'hdb-dashboard',
     number: '05',
-    title: 'HDB AnalyticsDashboard',
+    title: 'HDB Analytics Dashboard',
     subtitle: 'Data Analytics (self-initiated project)',
     description:
       'End-to-end data analytics project using PostgreSQL, Python, and Power BI to analyse Singapore HDB resale flat transactions from 2017 to 2026.',
