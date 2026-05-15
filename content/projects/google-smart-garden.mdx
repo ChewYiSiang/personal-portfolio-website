@@ -1,0 +1,185 @@
+---
+title: "5-Day Generative AI Intensive Course with Google: Smart Garden Assistant"
+description: "End-to-end IoT data pipeline from ESP32-C3 sensors to an AI recommendation agent for autonomous garden monitoring."
+date: "2024"
+tags: ["ESP32-C3", "C++", "MQTT", "InfluxDB", "Python", "LangChain", "Telegraf"]
+status: "Active"
+github: "https://github.com/yourusername/smart-garden"
+demo: ""
+math: true
+
+---
+
+## 🎯 About the Course
+The 5-Day AI Agents Intensive is a free, structured online program created by Google's AI researchers and engineers. It covers both the theoretical foundations and hands-on applications of AI agents, progressing from simple agents to full multi-agent systems. The following is the learning that I have collated over the 5 days:
+
+
+### 1. Working with AI Agents
+- Learned how to build and call single agents.
+- Orchestrated multi-agent workflows.
+- Implemented A2A (Agent-to-Agent) communication to scale multi-agent systems across teams and organizations.
+
+### 2. Tooling and Integration
+- Created function tools and custom tools, and integrated them as agent tools.
+- Built agents that handle complex, real-world workflows.
+- Integrated external systems and designed workflows that span extended periods of time.
+
+### 3. Stateful Agents and Memory
+- Built stateful AI agents using sessions.
+- Managed agent memory and applied memory consolidation techniques.
+
+### 4. Debugging and Observability
+- Debugged agent failures using debug logs and the ADK Web UI.
+- Scaled observability practices for production environments.
+
+### 5. Testing and Evaluation
+- Created and evaluated tests using the ADK Web UI.
+- Performed automated regression testing with the `adk eval` CLI.
+- Analyzed evaluation results to improve agent behavior.
+
+### 6. Deployment and Production
+- Deployed ADK agents to Vertex AI Agent Engine.
+- Gained experience taking agents from development to deployment and production.
+
+---
+
+# Capstone Project: 🌱 Garden AI Assistant
+
+An AI agent application using **Google AI Agent Developer Kit (ADK)**.
+This Capstone Project is part of the 5-Day AI Agents Intensive Course with Google (Nov 10 - 14, 2025). The project focuses on applying large language models, autonomous AI agents using Google's Gemini API and modern agentic frameworks, and tool integrations to build end-to-end autonomous AI systems.
+
+## Problem
+Community gardens frequently struggle with communication, inconsistent access to expertise, and difficulties in managing shared resources. Individual gardeners may encounter uncertainty when diagnosing plant health issues, identifying effective organic pest solutions, or planning out seasonal activities. These overlapping needs can lead to inefficiencies, repeated mistakes, or missed opportunities for collaboration and learning. By giving gardeners assistance with gardening focused response, it can help them plan out their gardening journey without having to search through forums, websites or having to look around for the availability of their community garden's resources.
+
+## Solution
+A multi-agent garden assistant with a conversational AI system that helps community gardeners optimize their growing practices through coordinated and actionable assistance.
+
+Agents are ideal for this project because the challenges faced by community gardeners are both diverse and highly contextual: plant care, resource coordination, and knowledge sharing all require distinct expertise and adaptive decision-making. Multi-agent systems make it possible to modularize these capabilities. Each specialized agent, whether focused on plant health, inventory, or scheduling, can process domain-specific queries and collaborate with each other, resulting in more accurate and personalized assistance. This structure allows the AI to handle complex workflows that go beyond simple question answering, such as diagnosing plant problems and then proactively recommending suitable treatments or finding the necessary tools, mirroring the collaborative dynamics found in real gardening communities.
+
+## Features
+
+✅ **LLM Agent** - Using `LlmAgent` with Gemini model.  
+✅ **Multi-agent system** - Using workflow agents like parallel agent, sequential agent and loop agent to orchestrate tasks.  
+✅ **Custom Tools** - Plant database and companion planting tools to customize agents.  
+✅ **ADK Runner** - `InMemoryRunner` for agent execution  
+✅ **Session Management** - `DatabaseSessionService` for persistent sessions which can survive restarts. `EventsCompactionConfig ` to manage the history and context of a conversation within an ADK session, ensuring efficient and effective communication with agents.   
+✅ **Memory Management** - `InMemoryMemoryService` for quick prototyping.  
+✅ **Observability** - `LoggingPlugin`, a built-in tool for performance analysis and debugging.   
+
+## 🏗️ Capstone Architecture
+
+![image](images/workflow.png)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.8 or higher
+- Access to Google Generative AI API with API key
+
+### 1. Clone this repository:
+
+```
+git clone https://github.com/AlstonChew/AI-Garden-Application.git
+
+cd AI-Garden-Application
+```
+
+### 2. Create and activate a virtual environment (optional but recommended):
+
+```
+python -m venv venv
+
+source venv/bin/activate # On Windows use venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Add your Google API Key
+
+- Create '.env' file
+- Copy `.env.example` to `.env`
+- Set your API key in '.env' file:
+```
+GOOGLE_API_KEY=your-api-key-here
+```
+
+Get your key: https://aistudio.google.com/app/apikey
+
+### 5. Run the Streamlit App:
+
+```bash
+streamlit run main.py
+```
+
+### Usage
+- Open the Streamlit UI in your browser (usually http://localhost:8501)
+- Ask questions about plant care, gardening problems, or companion planting such as the following:
+    - How do I care for tomatoes?
+    - Can I plant basil with tomatoes?
+    - Brown spots on tomato leaves indicate early blight.
+- Interact naturally; behind the scenes the agent may call tools and provide actionable advice
+
+## 📁 Project Structure
+
+```
+AI-GARDEN-APPLICATION/
+│
+├── ai_agents/ # All agent definitions and coordination logic
+│   ├── __init__.py
+│   ├── calendar_agent.py
+│   ├── community_coordinator.py
+│   ├── parallel_workflow.py
+│   ├── research_agent.py
+│   ├── resource_searcher.py
+│   ├── root_agent.py
+│   ├── sequential_workflow.py
+│   ├── weather_agent.py
+│
+├── db/ # SQLite database for sessions/history
+│   └── garden_ai_assistant.db
+│
+├── images/
+│   └── workflow.png
+│
+├── tests/ # Evaluation cases and testing scripts
+│   ├── eval_cases.json
+│   └── test.py
+│
+├── tools/ # Gardening-related tool integrations
+│   ├── __init__.py
+│   ├── inventory_tools.py
+│   └── plant_database.py
+│
+├── venv/
+│   # (If using a virtual environment — do not add to git!)
+│
+├── .env.example # Your API secrets (never commit!)
+├── .gitattributes
+├── .gitignore
+├── main.py  # Application launcher (Streamlit/chat UI)
+├── README.md
+├── requirements.txt # Python dependencies
+```
+
+## 🛠️ Future Improvements
+
+- Add Google Search built-in tool
+- Streaming partial responses for improved UX
+- Advanced tool orchestration and richer plant knowledge base
+- Deploy as web service or desktop app
+- Add user authentication and personalized memory
+
+---
+
+## 📚 ADK Documentation
+
+- [Google Generative AI SDK (ADK) Documentation](https://google.github.io/adk-docs/)
+- [Streamlit Documentation](https://docs.streamlit.io/)
+

@@ -104,12 +104,37 @@ export const projects: Project[] = [
       'Model evaluation and performance optimization',
     ],
     tags: ['Python', 'TensorFlow', 'BERT', 'NLP', 'Machine Learning'],
-    status: 'Completed',
+    status: 'In Progress',
     github: 'https://github.com/yourusername/sentiment-analysis-lazada',
     demo: '',
     image: '',
     gradientFrom: 'rgba(234,179,8,0.04)',
     gradientTo: 'rgba(0,245,255,0.04)',
-    featured: true
+    featured: false
   },
+  {
+    slug: 'hdb-dashboard',
+    number: '05',
+    title: 'HDB AnalyticsDashboard',
+    subtitle: 'Data Analytics (self-initiated project)',
+    description:
+      'End-to-end data analytics project using PostgreSQL, Python, and Power BI to analyse Singapore HDB resale flat transactions from 2017 to 2026.',
+    longDescription:
+      'This project involved collecting and preprocessing a dataset of HDB resale flat transactions, which included attributes such as flat type, location, transaction date, and price. I then performed exploratory data analysis (EDA) using Python to uncover trends and insights in the housing market with PostgreSQL as the database. Finally, I created an interactive dashboard in Power BI to visualize key metrics and trends, allowing users to explore the data through filters and dynamic charts.',
+    highlights: [
+      'Designing a reproducible ETL pipeline using Python + PostgreSQL, including pagination handling for large API datasets',
+      'Writing analytical SQL beyond basic SELECT (CTEs, window functions, percentile aggregates, conditional aggregation)',
+      'Translating raw transactional data into business-readable insights across five distinct analytical angles',
+      'Building a multi-page Power BI report with DAX measures, cross-filtering, dual-axis charts, coordinate-based choropleth maps, and conditional formatting matrices'
+    ],
+    tags: ['Python', 'PostgreSQL', 'Power BI', 'Data Analytics', 'ETL'],
+    status: 'Completed',
+    github: 'https://github.com/ChewYiSiang/HDB-Analytic-Dashboard',
+    demo: '',
+    image: '',
+    gradientFrom: 'rgba(0,245,255,0.04)',
+    gradientTo: 'rgba(74,222,128,0.04)',
+    featured: true,
+  },
+
 ]
