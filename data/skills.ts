@@ -17,7 +17,6 @@ export const skills: SkillCategory[] = [
     chips: [
       { icon: '🐍', name: 'Python' },
       { icon: '🗄️', name: 'SQL' },
-      { icon: '🌐', name: 'JavaScript' },
     ],
   },
   {
@@ -36,23 +35,21 @@ export const skills: SkillCategory[] = [
     label: 'Data Engineering',
     chips: [
       { icon: '💥', name: 'Apache Spark' },
-      { icon: '📨', name: 'Kafka' },
       { icon: '🌊', name: 'Airflow' },
       { icon: '🔧', name: 'dbt' },
       { icon: '🐘', name: 'PostgreSQL' },
-      { icon: '☁️', name: 'BigQuery' },
     ],
   },
   {
     label: 'Tools & Infra',
     chips: [
+      { icon: '📓', name: 'Jupyter' },
       { icon: '🐳', name: 'Docker' },
-      { icon: '📊', name: 'Plotly' },
       { icon: '📈', name: 'Tableau' },
-      { icon: '🎈', name: 'Streamlit' },
       { icon: '📡', name: 'PowerBI' },
       { icon: '🌿', name: 'Git' },
-      { icon: '🤖', name: 'AI Development' },
+      { icon: '🤖', name: 'AI' },
+      { icon: '🧑‍💻', name: 'Claude' },
     ],
   },
 ]

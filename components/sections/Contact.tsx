@@ -8,7 +8,7 @@ import { personal } from '@/data/personal'
 const CONTACT_LINKS = [
   {
     label: 'LinkedIn',
-    value: 'linkedin.com/in/yourprofile',
+    value: 'linkedin.com/in/yi-siang-chew-617576212/',
     href: personal.social.linkedin,
     iconBg: 'rgba(59,130,246,0.1)',
     icon: (
@@ -19,7 +19,7 @@ const CONTACT_LINKS = [
   },
   {
     label: 'GitHub',
-    value: 'github.com/yourusername',
+    value: 'github.com/ChewYiSiang',
     href: personal.social.github,
     iconBg: 'rgba(255,255,255,0.05)',
     icon: (
@@ -30,7 +30,7 @@ const CONTACT_LINKS = [
   },
   {
     label: 'WhatsApp',
-    value: '+65 1234 5678',
+    value: '+65 9188 5071',
     href: personal.social.whatsapp,
     iconBg: 'rgba(74,222,128,0.1)',
     icon: (
