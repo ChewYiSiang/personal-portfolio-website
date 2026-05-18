@@ -34,8 +34,6 @@ export const skills: SkillCategory[] = [
   {
     label: 'Data Engineering',
     chips: [
-      { icon: '💥', name: 'Apache Spark' },
-      { icon: '🌊', name: 'Airflow' },
       { icon: '🔧', name: 'dbt' },
       { icon: '🐘', name: 'PostgreSQL' },
     ],
