@@ -69,7 +69,7 @@ export default function Hero() {
           <div className="flex-1 text-center lg:text-left">
             {/* Availability badge */}
             {personal.available && (
-              <div className="inline-flex items-center gap-2 glass px-3 py-1.5 rounded-full mb-6 font-mono text-[11px] text-gray-500">
+              <div className="inline-flex items-center gap-2 glass px-3 py-1.5 rounded-full mb-6 font-mono text-[11px] text-gray-300">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                 {personal.availabilityNote}
               </div>
@@ -77,7 +77,7 @@ export default function Hero() {
 
             {/* Headline */}
             <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] leading-[1.08] mb-4 tracking-tight">
-              <span className="text-gray-100">Building the</span>
+              <span className="text-gray-100">Exploring the</span>
               <br />
               <span className="gradient-text">Future of Data</span>
               <br />
@@ -85,11 +85,11 @@ export default function Hero() {
             </h1>
 
             {/* Roles */}
-            <p className="font-mono text-xs sm:text-sm text-gray-600 mt-4 mb-8 leading-relaxed">
+            <p className="font-mono text-xs sm:text-sm text-gray-400 mt-4 mb-8 leading-relaxed">
               <span className="text-cyber-cyan">{personal.roles[0]}</span>
-              <span className="mx-2 text-gray-800">|</span>
+              <span className="mx-2 text-gray-600">|</span>
               <span className="text-gray-300">{personal.roles[1]}</span>
-              <span className="mx-2 text-gray-800">|</span>
+              <span className="mx-2 text-gray-600">|</span>
               <span className="text-cyber-purple">{personal.roles[2]}</span>
             </p>
 
@@ -101,7 +101,7 @@ export default function Hero() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass flex items-center gap-2 px-4 py-2.5 rounded-lg font-mono text-[11px] text-gray-500 border border-white/5 hover:text-cyber-cyan hover:border-cyber-cyan/30 hover:shadow-[0_0_14px_rgba(0,245,255,0.1)] transition-all duration-300"
+                  className="glass flex items-center gap-2 px-4 py-2.5 rounded-lg font-mono text-[11px] text-gray-300 border border-white/5 hover:text-cyber-cyan hover:border-cyber-cyan/30 hover:shadow-[0_0_14px_rgba(0,245,255,0.1)] transition-all duration-300"
                 >
                   {link.icon}
                   {link.label}
@@ -128,7 +128,7 @@ export default function Hero() {
               {personal.stats.map((s) => (
                 <div key={s.label} className="glass rounded-lg p-3 text-center">
                   <div className="font-display font-extrabold text-xl gradient-text">{s.value}</div>
-                  <div className="font-mono text-[9px] text-gray-600 mt-0.5">{s.label}</div>
+                  <div className="font-mono text-[9px] text-gray-400 mt-0.5">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -139,7 +139,7 @@ export default function Hero() {
         <div className="flex justify-center mt-16 lg:mt-20">
           <button
             onClick={() => scrollTo('#skills')}
-            className="flex flex-col items-center gap-1.5 font-mono text-[10px] text-gray-700 animate-bounce hover:text-cyber-cyan transition-colors"
+            className="flex flex-col items-center gap-1.5 font-mono text-[10px] text-gray-500 animate-bounce hover:text-cyber-cyan transition-colors"
           >
             <span>scroll</span>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

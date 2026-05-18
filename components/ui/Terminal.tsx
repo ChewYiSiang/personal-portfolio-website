@@ -50,23 +50,23 @@ export default function Terminal() {
         <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
         <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
         <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-        <span className="ml-2 text-gray-600 text-[10px]">skills.py</span>
+        <span className="ml-2 text-gray-400 text-[10px]">skills.py</span>
       </div>
 
       {/* Code lines */}
       <div className="space-y-1.5 text-[11.5px] leading-relaxed">
         <div>
           <span className="text-cyber-purple">import</span>
-          <span className="text-gray-500"> skills </span>
+          <span className="text-gray-300"> skills </span>
           <span className="text-cyber-purple">from</span>
           <span className="text-green-400"> &quot;data_lab&quot;</span>
         </div>
-        <div className="mt-2 text-gray-600">
+        <div className="mt-2 text-gray-400">
           {'>>> '}
           <span className="text-cyber-cyan">skills</span>
-          <span className="text-gray-500">.current()</span>
+          <span className="text-gray-300">.current()</span>
         </div>
-        <div className="flex items-center gap-0.5 text-gray-600">
+        <div className="flex items-center gap-0.5 text-gray-400">
           <span>{'>>> '}</span>
           <span className="text-green-400">&quot;</span>
           <span className="text-gray-200">{displayText}</span>

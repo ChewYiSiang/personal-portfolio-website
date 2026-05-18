@@ -37,7 +37,7 @@ export default function Experience() {
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                       <div>
                         <h3 className="font-display font-bold text-base text-gray-100">{entry.role}</h3>
-                        <p className="text-gray-500 text-sm mt-0.5">{entry.company}</p>
+                        <p className="text-gray-300 text-sm mt-0.5">{entry.company}</p>
                       </div>
                       <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
                         <span
@@ -50,16 +50,16 @@ export default function Experience() {
                         >
                           {entry.type}
                         </span>
-                        <span className="font-mono text-[10px] text-gray-600">{entry.period}</span>
+                        <span className="font-mono text-[10px] text-gray-400">{entry.period}</span>
                       </div>
                     </div>
 
-                    <p className="text-gray-500 text-xs leading-relaxed mb-3">{entry.description}</p>
+                    <p className="text-gray-300 text-xs leading-relaxed mb-3">{entry.description}</p>
 
                     {/* Highlights */}
                     <ul className="space-y-1.5 mb-4">
                       {entry.highlights.map((h) => (
-                        <li key={h} className="flex items-start gap-2 font-mono text-[11px] text-gray-500">
+                        <li key={h} className="flex items-start gap-2 font-mono text-[11px] text-gray-300">
                           <span className="text-cyber-cyan flex-shrink-0 mt-0.5">▸</span>
                           {h}
                         </li>
@@ -69,7 +69,7 @@ export default function Experience() {
                     {/* Tech tags */}
                     <div className="flex flex-wrap gap-1.5">
                       {entry.tech.map((t) => (
-                        <span key={t} className="font-mono text-[10px] text-gray-600 glass px-2 py-0.5 rounded border border-white/[0.06]">
+                        <span key={t} className="font-mono text-[10px] text-gray-400 glass px-2 py-0.5 rounded border border-white/[0.06]">
                           {t}
                         </span>
                       ))}

@@ -51,15 +51,15 @@ export default function Projects() {
                       <span className={`font-mono text-[10px] px-2 py-0.5 rounded border ${statusColour(project.status)}`}>
                         {project.status}
                       </span>
-                      <span className="font-mono text-[10px] text-gray-600">{project.subtitle}</span>
+                      <span className="font-mono text-[10px] text-gray-400">{project.subtitle}</span>
                     </div>
 
                     <h3 className="font-display font-bold text-lg text-gray-100 mb-1.5">{project.title}</h3>
-                    <p className="text-gray-500 text-xs leading-relaxed mb-3 line-clamp-2">{project.description}</p>
+                    <p className="text-gray-300 text-xs leading-relaxed mb-3 line-clamp-2">{project.description}</p>
 
                     <ul className="space-y-1 mb-4">
                       {project.highlights.slice(0, 3).map((h) => (
-                        <li key={h} className="flex items-start gap-2 font-mono text-[11px] text-gray-600">
+                        <li key={h} className="flex items-start gap-2 font-mono text-[11px] text-gray-300">
                           <span className="text-cyber-cyan mt-0.5 flex-shrink-0">▸</span>
                           {h}
                         </li>
@@ -68,7 +68,7 @@ export default function Projects() {
 
                     <div className="flex flex-wrap gap-1.5 mb-4">
                       {project.tags.map((tag) => (
-                        <span key={tag} className="font-mono text-[10px] text-gray-600 glass px-2 py-0.5 rounded border border-white/[0.06]">
+                        <span key={tag} className="font-mono text-[10px] text-gray-400 glass px-2 py-0.5 rounded border border-white/[0.06]">
                           {tag}
                         </span>
                       ))}

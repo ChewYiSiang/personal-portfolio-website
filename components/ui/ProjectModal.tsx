@@ -47,7 +47,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             {/* ── Header ── */}
             <div className="sticky top-0 z-10 bg-[#080808] px-6 pt-5 pb-4 border-b border-white/5 flex items-start justify-between gap-3">
               <div>
-                <p className="font-mono text-[9px] tracking-[3px] uppercase text-gray-600 mb-1">
+                <p className="font-mono text-[9px] tracking-[3px] uppercase text-gray-400 mb-1">
                   {project.subtitle} · {project.status}
                 </p>
                 <h2 className="font-display font-extrabold text-xl text-gray-100">{project.title}</h2>
@@ -71,7 +71,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <span className="font-display font-black text-7xl opacity-[0.09] gradient-text select-none">
                   {project.number}
                 </span>
-                <span className="absolute bottom-2.5 font-mono text-[9px] text-gray-700">
+                <span className="absolute bottom-2.5 font-mono text-[9px] text-gray-500">
                   [ project image placeholder ]
                 </span>
               </div>
@@ -85,16 +85,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               {/* Overview */}
               <section>
-                <p className="font-mono text-[9px] tracking-[3px] uppercase text-gray-600 mb-2">Overview</p>
-                <p className="text-sm text-gray-400 leading-relaxed">{project.longDescription}</p>
+                <p className="font-mono text-[9px] tracking-[3px] uppercase text-gray-400 mb-2">Overview</p>
+                <p className="text-sm text-gray-300 leading-relaxed">{project.longDescription}</p>
               </section>
 
               {/* Highlights */}
               <section>
-                <p className="font-mono text-[9px] tracking-[3px] uppercase text-gray-600 mb-3">Key Highlights</p>
+                <p className="font-mono text-[9px] tracking-[3px] uppercase text-gray-400 mb-3">Key Highlights</p>
                 <ul className="space-y-2">
                   {project.highlights.map((h) => (
-                    <li key={h} className="flex items-start gap-2 font-mono text-xs text-gray-400">
+                    <li key={h} className="flex items-start gap-2 font-mono text-xs text-gray-300">
                       <span className="text-cyber-cyan mt-0.5 flex-shrink-0">▸</span>
                       {h}
                     </li>
@@ -104,7 +104,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               {/* Tech stack */}
               <section>
-                <p className="font-mono text-[9px] tracking-[3px] uppercase text-gray-600 mb-3">Tech Stack</p>
+                <p className="font-mono text-[9px] tracking-[3px] uppercase text-gray-400 mb-3">Tech Stack</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
@@ -125,7 +125,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-xs px-4 py-2 rounded-lg border border-white/10 text-gray-400 hover:text-white hover:border-white/25 transition-all"
+                      className="font-mono text-xs px-4 py-2 rounded-lg border border-white/10 text-gray-300 hover:text-white hover:border-white/25 transition-all"
                     >
                       ⌥ GitHub Source
                     </a>

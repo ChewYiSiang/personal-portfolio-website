@@ -75,7 +75,7 @@ export default function TheLab() {
                 style={{ borderColor: `${event.accent}20`, background: `${event.accent}08` }}
               >
                 <div className="text-2xl mb-3">{event.icon}</div>
-                <div className="font-mono text-[9px] tracking-[2.5px] uppercase text-gray-600 mb-1.5">
+                <div className="font-mono text-[9px] tracking-[2.5px] uppercase text-gray-400 mb-1.5">
                   {event.type}
                 </div>
                 <span
@@ -85,15 +85,15 @@ export default function TheLab() {
                   {event.badge}
                 </span>
                 <h4 className="font-display font-semibold text-[13.5px] text-gray-100 mb-1">{event.title}</h4>
-                <p className="font-mono text-[10px] text-gray-600 mb-2.5">{event.meta}</p>
-                <p className="text-xs text-gray-500 leading-relaxed">{event.description}</p>
+                <p className="font-mono text-[10px] text-gray-400 mb-2.5">{event.meta}</p>
+                <p className="text-xs text-gray-300 leading-relaxed">{event.description}</p>
               </div>
             ))}
           </div>
 
           {/* Counter + nav */}
           <div className="flex items-center justify-end gap-2 mt-3">
-            <span className="font-mono text-[10px] text-gray-700 mr-auto">
+            <span className="font-mono text-[10px] text-gray-500 mr-auto">
               {index + 1} / {labEvents.length}
             </span>
             {(['←', '→'] as const).map((arrow, i) => (
@@ -101,7 +101,7 @@ export default function TheLab() {
                 key={arrow}
                 onClick={() => scroll(i === 0 ? -1 : 1)}
                 aria-label={i === 0 ? 'Previous' : 'Next'}
-                className="w-8 h-8 rounded-full glass border border-white/[0.06] text-gray-600 hover:text-cyber-cyan hover:border-cyber-cyan/35 flex items-center justify-center text-base transition-all"
+                className="w-8 h-8 rounded-full glass border border-white/[0.06] text-gray-400 hover:text-cyber-cyan hover:border-cyber-cyan/35 flex items-center justify-center text-base transition-all"
               >
                 {arrow}
               </button>

@@ -90,22 +90,22 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-4" noValidate>
               <div className="grid sm:grid-cols-2 gap-4">
                 <label className="flex flex-col gap-1.5">
-                  <span className="font-mono text-[9.5px] tracking-[2px] uppercase text-gray-600">Name</span>
+                  <span className="font-mono text-[9.5px] tracking-[2px] uppercase text-gray-400">Name</span>
                   <input name="name" value={form.name} onChange={handleChange} placeholder="Jane Doe" className="form-input" />
                 </label>
                 <label className="flex flex-col gap-1.5">
-                  <span className="font-mono text-[9.5px] tracking-[2px] uppercase text-gray-600">Email</span>
+                  <span className="font-mono text-[9.5px] tracking-[2px] uppercase text-gray-400">Email</span>
                   <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="hello@example.com" className="form-input" />
                 </label>
               </div>
 
               <label className="flex flex-col gap-1.5">
-                <span className="font-mono text-[9.5px] tracking-[2px] uppercase text-gray-600">Subject</span>
+                <span className="font-mono text-[9.5px] tracking-[2px] uppercase text-gray-400">Subject</span>
                 <input name="subject" value={form.subject} onChange={handleChange} placeholder="Internship / Collaboration / Just saying hi" className="form-input" />
               </label>
 
               <label className="flex flex-col gap-1.5">
-                <span className="font-mono text-[9.5px] tracking-[2px] uppercase text-gray-600">Message</span>
+                <span className="font-mono text-[9.5px] tracking-[2px] uppercase text-gray-400">Message</span>
                 <textarea name="message" value={form.message} onChange={handleChange} placeholder="Tell me about what you're working on..." className="form-input form-textarea" />
               </label>
 
@@ -139,16 +139,16 @@ export default function Contact() {
                     {link.icon}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="font-mono text-[9px] tracking-[2px] uppercase text-gray-700 mb-0.5">{link.label}</div>
-                    <div className="text-xs text-gray-400 truncate">{link.value}</div>
+                    <div className="font-mono text-[9px] tracking-[2px] uppercase text-gray-500 mb-0.5">{link.label}</div>
+                    <div className="text-xs text-gray-300 truncate">{link.value}</div>
                   </div>
-                  <span className="text-gray-700 text-sm group-hover:text-cyber-cyan">→</span>
+                  <span className="text-gray-500 text-sm group-hover:text-cyber-cyan">→</span>
                 </a>
               ))}
 
               {/* Note */}
               <div className="glass rounded-xl px-5 py-4 border border-cyber-cyan/[0.07] bg-cyber-cyan/[0.02] mt-1">
-                <p className="font-mono text-[10.5px] text-gray-600 leading-relaxed">{personal.contactNote}</p>
+                <p className="font-mono text-[10.5px] text-gray-400 leading-relaxed">{personal.contactNote}</p>
               </div>
             </div>
           </RevealWrapper>

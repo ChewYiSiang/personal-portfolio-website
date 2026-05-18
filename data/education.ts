@@ -39,7 +39,8 @@ export const education: EducationEntry[] = [
     period: '2020 – 2023',
     status: 'Graduated',
     achievements: [
-      'Best Capstone Project Award (placeholder)',
+      'Wiley Certified Data Analyst Certificate (Jan 2021)',
+      'Google Data Analytics Certificate (Aug 2022)'
     ],
     courses: ["Big Data Analytics Project", "Predictive Modeling", "Big Data Management", "Business Analytics Project", "Data Science Project", "Text & Rich Media Analytics", "AI Technologies", "Data Structures & Algorithm", "Analytics & Financial Service"],
     accent: '#bf00ff',

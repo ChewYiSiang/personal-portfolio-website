@@ -8,7 +8,7 @@
 export const personal = {
   name: 'Chew Yi Siang',
   tagline: 'Exploring the Future of Data & Intelligence.',
-  roles: ['Computer Science Student', 'Curious Learner', 'ML Enthusiast'],
+  roles: ['Computer Science Student', 'Curious Learner', 'Aspiring AI/ML engineer'],
   location: 'Singapore · SUTD',
   email: 'chewyisiang123@gmail.com',
   available: true,

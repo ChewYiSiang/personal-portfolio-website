@@ -42,18 +42,18 @@ export default function Education() {
                       </span>
                     </div>
                     <p className="text-gray-200 text-sm font-medium">{entry.degree}</p>
-                    <p className="text-gray-600 text-xs mt-0.5">{entry.institution}</p>
-                    <p className="font-mono text-[10px] text-gray-700 mt-1">{entry.period}</p>
+                    <p className="text-gray-400 text-xs mt-0.5">{entry.institution}</p>
+                    <p className="font-mono text-[10px] text-gray-400 mt-1">{entry.period}</p>
                   </div>
                 </div>
 
                 {/* Detail columns */}
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <p className="font-mono text-[9px] tracking-[2.5px] uppercase text-gray-700 mb-2">Achievements</p>
+                    <p className="font-mono text-[9px] tracking-[2.5px] uppercase text-gray-500 mb-2">Achievements</p>
                     <ul className="space-y-1.5">
                       {entry.achievements.map((a) => (
-                        <li key={a} className="flex items-start gap-2 font-mono text-[11px] text-gray-500">
+                        <li key={a} className="flex items-start gap-2 font-mono text-[11px] text-gray-300">
                           <span className="text-cyber-cyan flex-shrink-0 mt-0.5">▸</span>
                           {a}
                         </li>
@@ -61,10 +61,10 @@ export default function Education() {
                     </ul>
                   </div>
                   <div>
-                    <p className="font-mono text-[9px] tracking-[2.5px] uppercase text-gray-700 mb-2">Key Coursework</p>
+                    <p className="font-mono text-[9px] tracking-[2.5px] uppercase text-gray-500 mb-2">Key Coursework</p>
                     <div className="flex flex-wrap gap-1.5">
                       {entry.courses.map((c) => (
-                        <span key={c} className="font-mono text-[10px] text-gray-600 glass px-2 py-0.5 rounded border border-white/[0.06]">
+                        <span key={c} className="font-mono text-[10px] text-gray-400 glass px-2 py-0.5 rounded border border-white/[0.06]">
                           {c}
                         </span>
                       ))}
