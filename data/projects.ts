@@ -94,18 +94,17 @@ export const projects: Project[] = [
     title: 'Sentiment Analysis for Lazada',
     subtitle: 'NLP + Machine Learning',
     description:
-      'Developed a sentiment analysis model to evaluate customer reviews for Lazada products. Utilized BERT-based transformer architecture for accurate emotion classification and implemented a real-time feedback system.',
+      'A multiclass NLP sentiment classifier trained on 775,000+ real customer reviews from Lazada\'s Google Play Store listing. The project covers the full ML pipeline: raw text ingestion → EDA → preprocessing → feature engineering → model comparison → final model selection.',
     longDescription:
-      'The project involved collecting and preprocessing customer reviews from Lazada, then training a BERT-based model to classify sentiments as positive, negative, or neutral. The model achieved an accuracy of 92% on a held-out test set and was integrated into Lazada\'s feedback system for real-time analysis.',
+      'TThe goal is to classify customer sentiment (positive / neutral / negative) from free-form text reviews of the Lazada mobile app. Rather than relying on star ratings alone, the model learns linguistic patterns from cleaned, tokenized review text, making it applicable to unrated text data. The model achieved an accuracy of 80% on a held-out test set.',
     highlights: [
-      'BERT-based transformer model for sentiment classification',
       'Data preprocessing and feature engineering for NLP tasks',
-      'Real-time feedback integration with Lazada\'s existing system',
+      'Hyperparameter tuning models',
       'Model evaluation and performance optimization',
     ],
     tags: ['Python', 'TensorFlow', 'BERT', 'NLP', 'Machine Learning'],
     status: 'In Progress',
-    github: 'https://github.com/yourusername/sentiment-analysis-lazada',
+    github: 'https://github.com/ChewYiSiang/sentiment-analysis-lazada',
     demo: '',
     image: '',
     gradientFrom: 'rgba(234,179,8,0.04)',
