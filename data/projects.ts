@@ -96,20 +96,21 @@ export const projects: Project[] = [
     description:
       'A multiclass NLP sentiment classifier trained on 775,000+ real customer reviews from Lazada\'s Google Play Store listing. The project covers the full ML pipeline: raw text ingestion → EDA → preprocessing → feature engineering → model comparison → final model selection.',
     longDescription:
-      'TThe goal is to classify customer sentiment (positive / neutral / negative) from free-form text reviews of the Lazada mobile app. Rather than relying on star ratings alone, the model learns linguistic patterns from cleaned, tokenized review text, making it applicable to unrated text data. The model achieved an accuracy of 80% on a held-out test set.',
+      'TThe goal is to classify customer sentiment (positive / neutral / negative) from free-form text reviews of the Lazada mobile app. Rather than relying on star ratings alone, the model learns linguistic patterns from cleaned, tokenized review text, making it applicable to unrated text data. The model achieved an accuracy of 89% on a held-out test set.',
     highlights: [
       'Data preprocessing and feature engineering for NLP tasks',
       'Hyperparameter tuning models',
       'Model evaluation and performance optimization',
+      'Business recommendations based on model insights'
     ],
-    tags: ['Python', 'TensorFlow', 'BERT', 'NLP', 'Machine Learning'],
-    status: 'In Progress',
+    tags: ['Python', 'Jupyter Notebook', 'NLP', 'Machine Learning', 'Word Cloud', 'NLTK', 'Scikit-learn'],
+    status: 'Completed',
     github: 'https://github.com/ChewYiSiang/sentiment-analysis-lazada',
     demo: '',
     image: '',
     gradientFrom: 'rgba(234,179,8,0.04)',
     gradientTo: 'rgba(0,245,255,0.04)',
-    featured: false
+    featured: true
   },
   {
     slug: 'hdb-dashboard',
