@@ -136,5 +136,28 @@ export const projects: Project[] = [
     gradientTo: 'rgba(74,222,128,0.04)',
     featured: true,
   },
+  {
+    slug: 'finreg-assistant',
+    number: '06',
+    title: 'MAS FinReg Assistant (RAG)',
+    subtitle: 'RAG + MLOps',
+    description:
+      'A production-grade RAG (Retrieval-Augmented Generation) chatbot that answers questions about MAS (Monetary Authority of Singapore) regulatory documents. Built to demonstrate end-to-end MLOps skills. From RAG pipeline design to containerised deployment with CI/CD and Kubernetes orchestration.',
+    longDescription:
+      'Built a Retrieval-Augmented Generation (RAG) pipeline to create a financial regulation assistant that can answer user queries based on the latest MAS regulations and guidelines. The project involved data ingestion, vector database management, and LLM integration to provide accurate and up-to-date responses. Along with a containerized deployment using Docker and implemented CI/CD workflows with GitHub Actions to automate testing and deployment processes, ensuring that the service remains reliable and scalable as new regulations are added.',
+    highlights: [
+      'Built a production RAG chatbot for MAS regulatory documents using FastAPI, ChromaDB, and Llama 3',
+      'Containerised with Docker Compose and deployed to Kubernetes (minikube) with horizontal scaling across 2 replicas',
+      'Implemented CI/CD pipeline with GitHub Actions (automated testing and Docker Hub image publishing on every push to main)'
+    ],
+    tags: ['Python', 'FastAPI', 'ChromaDB', 'Llama 3', 'Docker', 'Kubernetes', 'CI/CD', 'MLOps', 'Github Actions'],
+    status: 'Completed',
+    github: 'https://github.com/ChewYiSiang/MAS-rag-chatbot',
+    demo: '',
+    image: '',
+    gradientFrom: 'rgba(0,245,255,0.04)',
+    gradientTo: 'rgba(74,222,128,0.04)',
+    featured: true,
+  },
 
 ]
