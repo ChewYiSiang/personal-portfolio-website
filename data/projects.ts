@@ -140,7 +140,7 @@ export const projects: Project[] = [
     slug: 'finreg-assistant',
     number: '06',
     title: 'MAS FinReg Assistant (RAG)',
-    subtitle: 'RAG + MLOps',
+    subtitle: 'RAG + MLOps (self-initiated project)',
     description:
       'A production-grade RAG (Retrieval-Augmented Generation) chatbot that answers questions about MAS (Monetary Authority of Singapore) regulatory documents. Built to demonstrate end-to-end MLOps skills. From RAG pipeline design to containerised deployment with CI/CD and Kubernetes orchestration.',
     longDescription:
