@@ -13,8 +13,9 @@ const config: Config = {
         bg: '#050505',
         surface: '#0d0d0d',
         'surface-2': '#111111',
-        'cyber-cyan': '#00f5ff',
-        'cyber-purple': '#bf00ff',
+        'cyber-cyan': '#818CF8',
+        'cyber-purple': '#818CF8',
+        accent: '#818CF8',
       },
       fontFamily: {
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],

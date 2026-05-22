@@ -8,7 +8,7 @@ export default function Education() {
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
           <SectionHeading
-            label="// 06. Background"
+            label="Education"
             title="Education"
             description="Academic journey from secondary school to engineering — always data-focused."
           />
@@ -53,8 +53,8 @@ export default function Education() {
                     <p className="font-mono text-[9px] tracking-[2.5px] uppercase text-gray-500 mb-2">Achievements</p>
                     <ul className="space-y-1.5">
                       {entry.achievements.map((a) => (
-                        <li key={a} className="flex items-start gap-2 font-mono text-[11px] text-gray-300">
-                          <span className="text-cyber-cyan flex-shrink-0 mt-0.5">▸</span>
+                        <li key={a} className="flex items-start gap-2 text-[12px] text-gray-300 leading-relaxed">
+                          <span className="text-gray-500 flex-shrink-0 mt-0.5">–</span>
                           {a}
                         </li>
                       ))}

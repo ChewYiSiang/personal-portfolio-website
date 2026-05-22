@@ -59,9 +59,8 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => scrollTo(e, link.href)}
-              className="text-gray-300 hover:text-cyber-cyan text-[11px] font-mono tracking-wide transition-colors relative group"
+              className="text-gray-300 hover:text-cyber-cyan text-[12px] tracking-wide transition-colors relative group"
             >
-              <span className="text-cyber-cyan/30 mr-1">#</span>
               {link.label}
               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gradient-to-r from-cyber-cyan to-cyber-purple group-hover:w-full transition-all duration-300" />
             </a>
@@ -106,18 +105,16 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => scrollTo(e, link.href)}
-              className="text-gray-300 hover:text-cyber-cyan font-mono text-sm transition-colors"
+              className="text-gray-300 hover:text-cyber-cyan text-sm transition-colors"
             >
-              <span className="text-cyber-cyan/35 mr-2">{'>'}</span>
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
             onClick={(e) => scrollTo(e, '#contact')}
-            className="text-cyber-cyan font-mono text-sm"
+            className="text-cyber-cyan text-sm"
           >
-            <span className="text-cyber-cyan/35 mr-2">{'>'}</span>
             Contact
           </a>
         </div>

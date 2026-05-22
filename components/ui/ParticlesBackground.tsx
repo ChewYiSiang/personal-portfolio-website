@@ -27,14 +27,14 @@ export default function ParticlesBackground() {
         resize: { enable: true },
       },
       modes: {
-        grab: { distance: 160, links: { opacity: 0.4, color: '#00f5ff' } },
+        grab: { distance: 160, links: { opacity: 0.4, color: '#818cf8' } },
         push: { quantity: 2 },
       },
     },
     particles: {
-      color: { value: ['#00f5ff', '#bf00ff', '#00d4e8'] },
+      color: { value: ['#818cf8', '#a78bfa', '#c4b5fd'] },
       links: {
-        color: '#00f5ff',
+        color: '#818cf8',
         distance: isMobile ? 100 : 140,
         enable: true,
         opacity: 0.07,
@@ -61,7 +61,7 @@ export default function ParticlesBackground() {
           enable: true,
           frequency: 0.05,
           opacity: 1,
-          color: { value: ['#00f5ff', '#bf00ff'] },
+          color: { value: ['#818cf8', '#c4b5fd'] },
         },
       },
     },

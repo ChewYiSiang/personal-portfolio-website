@@ -1,114 +1,142 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import RevealWrapper from '@/components/ui/RevealWrapper'
 import SectionHeading from '@/components/ui/SectionHeading'
 import { labEvents } from '@/data/lab'
 
-const CARD_WIDTH = 291 // px including gap
+// Triple the events so the middle copy has content on both sides for drag + loop
+const tripled = [...labEvents, ...labEvents, ...labEvents]
+
+const SPEED = 0.65 // px per frame
 
 export default function TheLab() {
   const trackRef = useRef<HTMLDivElement>(null)
-  const [index, setIndex] = useState(0)
+  const rafRef = useRef<number>()
+  const isDragging = useRef(false)
+  const dragStartX = useRef(0)
+  const dragScrollLeft = useRef(0)
 
-  /* Drag-to-scroll */
   useEffect(() => {
     const track = trackRef.current
     if (!track) return
-    let isDown = false, startX = 0, scrollLeft = 0
 
-    const onDown  = (e: MouseEvent) => { isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft }
-    const onLeave = () => { isDown = false }
-    const onUp    = () => { isDown = false }
-    const onMove  = (e: MouseEvent) => {
-      if (!isDown) return
+    // Start at the middle copy so dragging backward also loops seamlessly
+    const singleWidth = () => track.scrollWidth / 3
+    track.scrollLeft = singleWidth()
+
+    const loop = () => {
+      if (!isDragging.current) {
+        track.scrollLeft += SPEED
+      }
+      // Keep scroll position in the middle-copy range to create seamless loops
+      const sw = singleWidth()
+      if (track.scrollLeft >= sw * 2) track.scrollLeft -= sw
+      if (track.scrollLeft < sw)       track.scrollLeft += sw
+
+      rafRef.current = requestAnimationFrame(loop)
+    }
+    rafRef.current = requestAnimationFrame(loop)
+
+    const onDown = (e: MouseEvent) => {
+      isDragging.current = true
+      dragStartX.current = e.pageX - track.offsetLeft
+      dragScrollLeft.current = track.scrollLeft
+      track.style.cursor = 'grabbing'
+    }
+    const onUp = () => {
+      isDragging.current = false
+      track.style.cursor = 'grab'
+    }
+    const onMove = (e: MouseEvent) => {
+      if (!isDragging.current) return
       e.preventDefault()
-      track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX) * 1.2
+      const x = e.pageX - track.offsetLeft
+      track.scrollLeft = dragScrollLeft.current - (x - dragStartX.current) * 1.4
     }
 
     track.addEventListener('mousedown', onDown)
-    track.addEventListener('mouseleave', onLeave)
-    track.addEventListener('mouseup', onUp)
+    window.addEventListener('mouseup', onUp)
     track.addEventListener('mousemove', onMove)
+
     return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
       track.removeEventListener('mousedown', onDown)
-      track.removeEventListener('mouseleave', onLeave)
-      track.removeEventListener('mouseup', onUp)
+      window.removeEventListener('mouseup', onUp)
       track.removeEventListener('mousemove', onMove)
     }
   }, [])
 
-  const scroll = (dir: 1 | -1) => {
-    const track = trackRef.current
-    if (!track) return
-    track.scrollBy({ left: dir * CARD_WIDTH, behavior: 'smooth' })
-  }
-
-  /* Sync counter */
-  const handleScroll = () => {
-    if (!trackRef.current) return
-    setIndex(Math.round(trackRef.current.scrollLeft / CARD_WIDTH))
-  }
-
   return (
-    <section id="lab" className="py-24 px-6 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+    <section id="lab" className="py-24 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6">
         <RevealWrapper>
           <SectionHeading
-            label="// 05. Beyond Code"
+            label="Beyond Code"
             title="The Lab"
-            description="Hackathons, workshops & seminars — drag or use arrows to scroll. More events added over time."
+            description="Hackathons, workshops & seminars — drag to explore."
           />
         </RevealWrapper>
+      </div>
 
-        <RevealWrapper delay={100}>
+      <RevealWrapper delay={80}>
+        <div className="relative w-full mt-2">
+          {/* Edge fade masks */}
+          <div
+            className="absolute left-0 top-0 bottom-0 w-28 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(90deg, #050505 0%, transparent 100%)' }}
+          />
+          <div
+            className="absolute right-0 top-0 bottom-0 w-28 z-10 pointer-events-none"
+            style={{ background: 'linear-gradient(270deg, #050505 0%, transparent 100%)' }}
+          />
+
           {/* Scrollable track */}
           <div
             ref={trackRef}
-            onScroll={handleScroll}
-            className="lab-scroll-track"
+            className="overflow-x-scroll no-scrollbar py-3 px-2 select-none"
+            style={{ cursor: 'grab' }}
           >
-            {labEvents.map((event, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 w-[275px] glass rounded-2xl p-5 border border-white/[0.06] hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(0,0,0,0.45)] transition-all duration-300"
-                style={{ borderColor: `${event.accent}20`, background: `${event.accent}08` }}
-              >
-                <div className="text-2xl mb-3">{event.icon}</div>
-                <div className="font-mono text-[9px] tracking-[2.5px] uppercase text-gray-400 mb-1.5">
-                  {event.type}
-                </div>
-                <span
-                  className="inline-block font-mono text-[9px] px-2 py-0.5 rounded border mb-2.5"
-                  style={{ color: event.accent, borderColor: `${event.accent}40`, background: `${event.accent}10` }}
+            <div className="flex gap-5 w-max">
+              {tripled.map((event, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 w-[272px] rounded-2xl p-5 border transition-transform duration-300 hover:scale-[1.025]"
+                  style={{
+                    background: `${event.accent}09`,
+                    borderColor: `${event.accent}22`,
+                  }}
                 >
-                  {event.badge}
-                </span>
-                <h4 className="font-display font-semibold text-[13.5px] text-gray-100 mb-1">{event.title}</h4>
-                <p className="font-mono text-[10px] text-gray-400 mb-2.5">{event.meta}</p>
-                <p className="text-xs text-gray-300 leading-relaxed">{event.description}</p>
-              </div>
-            ))}
-          </div>
+                  <p className="text-[9px] tracking-[2.5px] uppercase text-gray-500 mb-1.5">
+                    {event.type}
+                  </p>
 
-          {/* Counter + nav */}
-          <div className="flex items-center justify-end gap-2 mt-3">
-            <span className="font-mono text-[10px] text-gray-500 mr-auto">
-              {index + 1} / {labEvents.length}
-            </span>
-            {(['←', '→'] as const).map((arrow, i) => (
-              <button
-                key={arrow}
-                onClick={() => scroll(i === 0 ? -1 : 1)}
-                aria-label={i === 0 ? 'Previous' : 'Next'}
-                className="w-8 h-8 rounded-full glass border border-white/[0.06] text-gray-400 hover:text-cyber-cyan hover:border-cyber-cyan/35 flex items-center justify-center text-base transition-all"
-              >
-                {arrow}
-              </button>
-            ))}
+                  <span
+                    className="inline-block text-[9px] px-2 py-0.5 rounded border mb-3"
+                    style={{
+                      color: event.accent,
+                      borderColor: `${event.accent}40`,
+                      background: `${event.accent}12`,
+                    }}
+                  >
+                    {event.badge}
+                  </span>
+
+                  <h4 className="font-display font-semibold text-[13px] text-gray-100 mb-1 leading-snug">
+                    {event.title}
+                  </h4>
+
+                  <p className="text-[10px] text-gray-500 mb-2.5 tracking-wide">{event.meta}</p>
+
+                  <p className="text-[11.5px] text-gray-400 leading-relaxed line-clamp-3">
+                    {event.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </RevealWrapper>
-      </div>
+        </div>
+      </RevealWrapper>
     </section>
   )
 }

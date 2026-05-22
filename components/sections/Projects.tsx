@@ -20,7 +20,7 @@ export default function Projects() {
         <div className="max-w-6xl mx-auto">
           <RevealWrapper>
             <SectionHeading
-              label="// 03. Work"
+              label="Selected Work"
               title="Featured Projects"
               description="Click any card to explore full project details."
             />
@@ -59,8 +59,8 @@ export default function Projects() {
 
                     <ul className="space-y-1 mb-4">
                       {project.highlights.slice(0, 3).map((h) => (
-                        <li key={h} className="flex items-start gap-2 font-mono text-[11px] text-gray-300">
-                          <span className="text-cyber-cyan mt-0.5 flex-shrink-0">▸</span>
+                        <li key={h} className="flex items-start gap-2 text-[12px] text-gray-300 leading-relaxed">
+                          <span className="text-gray-500 mt-0.5 flex-shrink-0">–</span>
                           {h}
                         </li>
                       ))}
@@ -74,7 +74,7 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    <span className="inline-flex items-center gap-1 font-mono text-[11px] text-cyber-cyan">
+                    <span className="inline-flex items-center gap-1 text-[11px] text-cyber-cyan">
                       View full details
                       <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -90,9 +90,9 @@ export default function Projects() {
           <RevealWrapper delay={300}>
             <Link
               href="/projects"
-              className="flex items-center justify-center gap-2 w-full mt-6 py-3.5 rounded-xl border border-cyber-cyan/18 bg-gradient-to-r from-cyber-cyan/[0.03] to-cyber-purple/[0.03] font-mono text-xs text-cyber-cyan hover:border-cyber-cyan/45 hover:shadow-[0_0_22px_rgba(0,245,255,0.1)] transition-all duration-300"
+              className="flex items-center justify-center gap-2 w-full mt-6 py-3.5 rounded-xl border border-cyber-cyan/20 bg-cyber-cyan/[0.03] text-xs text-cyber-cyan hover:border-cyber-cyan/40 hover:bg-cyber-cyan/[0.06] transition-all duration-300"
             >
-              ⌗ View All Projects — Project Archive →
+              All Projects →
             </Link>
           </RevealWrapper>
         </div>

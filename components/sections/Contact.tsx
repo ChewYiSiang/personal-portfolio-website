@@ -45,7 +45,7 @@ const CONTACT_LINKS = [
     href: `mailto:${personal.email}`,
     iconBg: 'rgba(191,0,255,0.1)',
     icon: (
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#bf00ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
         <polyline points="22,6 12,13 2,6" />
       </svg>
@@ -78,7 +78,7 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
           <SectionHeading
-            label="// 07. Get in Touch"
+            label="Get in Touch"
             title="Contact Me"
             description="Open to internships, collaborations, and interesting projects. Let's build something meaningful."
           />
