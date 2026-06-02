@@ -21,6 +21,25 @@ export interface Project {
   /** Accent gradient end colour (CSS colour string) */
   gradientTo: string
   featured: boolean
+  /** Filter buckets this project belongs to, e.g. ['AI/ML', 'NLP'] */
+  categories: string[]
+}
+
+// ─── Certifications ───────────────────────────────────────────────────────────
+
+export interface Certification {
+  title: string
+  issuer: string
+  /** e.g. "Mar 2026" or "2026" */
+  date: string
+  /** Short one-line summary of what the credential covers */
+  description: string
+  /** Skills / topics the credential validates */
+  skills: string[]
+  /** Public verification / credential URL (optional) */
+  credentialUrl?: string
+  /** CSS colour string for the accent (icon, badge, hover border) */
+  accent: string
 }
 
 // ─── MDX frontmatter (used by the [slug] page) ────────────────────────────────

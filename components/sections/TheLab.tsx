@@ -84,11 +84,11 @@ export default function TheLab() {
           {/* Edge fade masks */}
           <div
             className="absolute left-0 top-0 bottom-0 w-28 z-10 pointer-events-none"
-            style={{ background: 'linear-gradient(90deg, #050505 0%, transparent 100%)' }}
+            style={{ background: 'linear-gradient(90deg, var(--bg) 0%, transparent 100%)' }}
           />
           <div
             className="absolute right-0 top-0 bottom-0 w-28 z-10 pointer-events-none"
-            style={{ background: 'linear-gradient(270deg, #050505 0%, transparent 100%)' }}
+            style={{ background: 'linear-gradient(270deg, var(--bg) 0%, transparent 100%)' }}
           />
 
           {/* Scrollable track */}
@@ -103,11 +103,11 @@ export default function TheLab() {
                   key={i}
                   className="flex-shrink-0 w-[272px] rounded-2xl p-5 border transition-transform duration-300 hover:scale-[1.025]"
                   style={{
-                    background: `${event.accent}09`,
-                    borderColor: `${event.accent}22`,
+                    background: `${event.accent}0f`,
+                    borderColor: `${event.accent}33`,
                   }}
                 >
-                  <p className="text-[9px] tracking-[2.5px] uppercase text-gray-500 mb-1.5">
+                  <p className="text-[9px] tracking-[2.5px] uppercase text-faint mb-1.5">
                     {event.type}
                   </p>
 
@@ -122,13 +122,13 @@ export default function TheLab() {
                     {event.badge}
                   </span>
 
-                  <h4 className="font-display font-semibold text-[13px] text-gray-100 mb-1 leading-snug">
+                  <h4 className="font-display font-semibold text-[13px] text-content mb-1 leading-snug">
                     {event.title}
                   </h4>
 
-                  <p className="text-[10px] text-gray-500 mb-2.5 tracking-wide">{event.meta}</p>
+                  <p className="text-[10px] text-faint mb-2.5 tracking-wide">{event.meta}</p>
 
-                  <p className="text-[11.5px] text-gray-400 leading-relaxed line-clamp-3">
+                  <p className="text-[11.5px] text-muted leading-relaxed line-clamp-3">
                     {event.description}
                   </p>
                 </div>

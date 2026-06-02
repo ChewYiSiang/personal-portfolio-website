@@ -21,7 +21,7 @@ export default function Experience() {
                 <div className="relative">
                   {/* Timeline dot */}
                   <div
-                    className="absolute -left-[31px] sm:-left-[43px] top-6 w-3.5 h-3.5 rounded-full ring-[3px] ring-[#050505]"
+                    className="absolute -left-[31px] sm:-left-[43px] top-6 w-3.5 h-3.5 rounded-full ring-[3px] ring-bg"
                     style={{
                       background: entry.accent,
                       boxShadow: `0 0 10px ${entry.accent}aa`,
@@ -30,14 +30,14 @@ export default function Experience() {
 
                   {/* Card */}
                   <div
-                    className="glass rounded-xl p-5 sm:p-6 border border-white/[0.06]"
+                    className="glass rounded-xl p-5 sm:p-6 border border-line"
                     style={{ borderLeftColor: entry.accent, borderLeftWidth: 2 }}
                   >
                     {/* Header */}
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                       <div>
-                        <h3 className="font-display font-bold text-base text-gray-100">{entry.role}</h3>
-                        <p className="text-gray-300 text-sm mt-0.5">{entry.company}</p>
+                        <h3 className="font-display font-bold text-base text-content">{entry.role}</h3>
+                        <p className="text-muted text-sm mt-0.5">{entry.company}</p>
                       </div>
                       <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
                         <span
@@ -50,17 +50,17 @@ export default function Experience() {
                         >
                           {entry.type}
                         </span>
-                        <span className="font-mono text-[10px] text-gray-400">{entry.period}</span>
+                        <span className="font-mono text-[10px] text-muted">{entry.period}</span>
                       </div>
                     </div>
 
-                    <p className="text-gray-300 text-xs leading-relaxed mb-3">{entry.description}</p>
+                    <p className="text-muted text-xs leading-relaxed mb-3">{entry.description}</p>
 
                     {/* Highlights */}
                     <ul className="space-y-1.5 mb-4">
                       {entry.highlights.map((h) => (
-                        <li key={h} className="flex items-start gap-2 text-[12px] text-gray-300 leading-relaxed">
-                          <span className="text-gray-500 flex-shrink-0 mt-0.5">–</span>
+                        <li key={h} className="flex items-start gap-2 text-[12px] text-muted leading-relaxed">
+                          <span className="text-faint flex-shrink-0 mt-0.5">–</span>
                           {h}
                         </li>
                       ))}
@@ -69,7 +69,7 @@ export default function Experience() {
                     {/* Tech tags */}
                     <div className="flex flex-wrap gap-1.5">
                       {entry.tech.map((t) => (
-                        <span key={t} className="font-mono text-[10px] text-gray-400 glass px-2 py-0.5 rounded border border-white/[0.06]">
+                        <span key={t} className="font-mono text-[10px] text-muted bg-tint px-2 py-0.5 rounded border border-line">
                           {t}
                         </span>
                       ))}

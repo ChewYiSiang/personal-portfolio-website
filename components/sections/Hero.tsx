@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Terminal from '@/components/ui/Terminal'
 import { TextScramble } from '@/components/ui/TextScramble'
 import { personal } from '@/data/personal'
@@ -53,21 +54,37 @@ const slideRight = {
 }
 
 export default function Hero() {
+  const ref = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  })
+
+  // Scroll-driven parallax — layers drift at different rates as you scroll away.
+  const rowY = useTransform(scrollYProgress, [0, 1], [0, -70])
+  const rowOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
+  const terminalY = useTransform(scrollYProgress, [0, 1], [0, -52])
+  const glowY = useTransform(scrollYProgress, [0, 1], [0, 130])
+  const glowScale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
+  const indicatorOpacity = useTransform(scrollYProgress, [0, 0.22], [1, 0])
+
   const scrollTo = (id: string) => {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-16">
-      {/* Ambient glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyber-cyan/[0.05] rounded-full blur-[140px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-cyber-cyan/[0.025] rounded-full blur-[100px]" />
-      </div>
+    <section ref={ref} id="hero" className="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-16">
+      {/* Ambient glow (parallax) */}
+      <motion.div className="absolute inset-0 pointer-events-none" style={{ y: glowY, scale: glowScale }}>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyber-cyan/[0.06] rounded-full blur-[140px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-cyber-cyan/[0.04] rounded-full blur-[100px]" />
+      </motion.div>
 
       <div className="relative z-10 max-w-6xl mx-auto w-full">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20">
-
+        <motion.div
+          className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20"
+          style={{ y: rowY, opacity: rowOpacity }}
+        >
           {/* Left — headline + socials */}
           <motion.div
             className="flex-1 text-center lg:text-left"
@@ -82,11 +99,11 @@ export default function Hero() {
                 className="flex items-center gap-2.5 justify-center lg:justify-start mb-7"
               >
                 <span className="w-[7px] h-[7px] bg-emerald-400 rotate-45 flex-shrink-0" />
-                <span className="text-[11px] tracking-[2.5px] uppercase text-gray-400">
+                <span className="text-[11px] tracking-[2.5px] uppercase text-muted">
                   {personal.availabilityNote}
                 </span>
-                <span className="hidden sm:block text-gray-700 mx-0.5">·</span>
-                <span className="hidden sm:block text-[11px] text-gray-600 tracking-wide">{personal.location}</span>
+                <span className="hidden sm:block text-faint mx-0.5">·</span>
+                <span className="hidden sm:block text-[11px] text-faint tracking-wide">{personal.location}</span>
               </motion.div>
             )}
 
@@ -95,22 +112,22 @@ export default function Hero() {
               variants={fadeUp}
               className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] leading-[1.08] mb-4 tracking-tight"
             >
-              <span className="text-gray-100">Exploring the</span>
+              <span className="text-content">Exploring the</span>
               <br />
               <span className="gradient-text">Future of Data</span>
               <br />
-              <span className="text-gray-100">&amp; Intelligence.</span>
+              <span className="text-content">&amp; Intelligence.</span>
             </motion.h1>
 
             {/* Roles */}
             <motion.p
               variants={fadeUp}
-              className="text-xs sm:text-sm text-gray-400 mt-4 mb-8 leading-relaxed tracking-wide"
+              className="text-xs sm:text-sm text-muted mt-4 mb-8 leading-relaxed tracking-wide"
             >
               {personal.roles.map((role, i) => (
                 <span key={role}>
-                  <span className={i === 0 ? 'text-cyber-cyan' : 'text-gray-300'}>{role}</span>
-                  {i < personal.roles.length - 1 && <span className="mx-3 text-gray-700">·</span>}
+                  <span className={i === 0 ? 'text-cyber-cyan' : 'text-content'}>{role}</span>
+                  {i < personal.roles.length - 1 && <span className="mx-3 text-faint">·</span>}
                 </span>
               ))}
             </motion.p>
@@ -126,7 +143,7 @@ export default function Hero() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass flex items-center gap-2 px-4 py-2.5 rounded-lg text-[12px] text-gray-300 border border-white/5 hover:text-cyber-cyan hover:border-cyber-cyan/30 transition-colors duration-200"
+                  className="glass flex items-center gap-2 px-4 py-2.5 rounded-lg text-[12px] text-muted border border-line hover:text-cyber-cyan hover:border-cyber-cyan/30 transition-colors duration-200"
                   whileHover={{ y: -2 }}
                   transition={{ type: 'spring', stiffness: 400, damping: 20 }}
                 >
@@ -137,7 +154,7 @@ export default function Hero() {
 
               <motion.button
                 onClick={() => scrollTo('#projects')}
-                className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-cyber-cyan/[0.06] border border-cyber-cyan/25 text-cyber-cyan hover:border-cyber-cyan/45 hover:bg-cyber-cyan/[0.1] transition-colors duration-200"
+                className="flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-cyber-cyan/[0.08] border border-cyber-cyan/30 text-cyber-cyan hover:border-cyber-cyan/50 hover:bg-cyber-cyan/[0.14] transition-colors duration-200"
                 whileHover={{ y: -2 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               >
@@ -153,53 +170,57 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right — terminal + stats */}
-          <motion.div
-            className="flex flex-col items-center gap-4"
-            variants={slideRight}
-            initial="hidden"
-            animate="show"
-          >
-            <Terminal />
+          {/* Right — terminal + stats (extra parallax) */}
+          <motion.div style={{ y: terminalY }}>
+            <motion.div
+              className="flex flex-col items-center gap-4"
+              variants={slideRight}
+              initial="hidden"
+              animate="show"
+            >
+              <Terminal />
 
-            <div className="grid grid-cols-3 gap-3 w-full max-w-[290px]">
-              {personal.stats.map((s, i) => (
-                <motion.div
-                  key={s.label}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.55, ease, delay: 0.55 + i * 0.1 }}
-                  className="glass rounded-lg p-3 text-center"
-                >
-                  <div className="font-display font-extrabold text-xl text-cyber-cyan">{s.value}</div>
-                  <div className="text-[10px] text-gray-500 mt-0.5">{s.label}</div>
-                </motion.div>
-              ))}
-            </div>
+              <div className="grid grid-cols-3 gap-3 w-full max-w-[290px]">
+                {personal.stats.map((s, i) => (
+                  <motion.div
+                    key={s.label}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.55, ease, delay: 0.55 + i * 0.1 }}
+                    className="glass rounded-lg p-3 text-center"
+                  >
+                    <div className="font-display font-extrabold text-xl text-cyber-cyan">{s.value}</div>
+                    <div className="text-[10px] text-faint mt-0.5">{s.label}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
-        </div>
+        </motion.div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator — entrance fade (outer) + scroll fade (inner) */}
         <motion.div
           className="flex justify-center mt-16 lg:mt-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.1, duration: 0.7 }}
         >
-          <button
-            onClick={() => scrollTo('#skills')}
-            className="flex flex-col items-center gap-2 text-[10px] text-gray-600 hover:text-cyber-cyan transition-colors tracking-[2.5px] uppercase"
-          >
-            <span>Scroll</span>
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+          <motion.div style={{ opacity: indicatorOpacity }}>
+            <button
+              onClick={() => scrollTo('#skills')}
+              className="flex flex-col items-center gap-2 text-[10px] text-faint hover:text-cyber-cyan transition-colors tracking-[2.5px] uppercase"
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-              </svg>
-            </motion.div>
-          </button>
+              <span>Scroll</span>
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                </svg>
+              </motion.div>
+            </button>
+          </motion.div>
         </motion.div>
       </div>
     </section>

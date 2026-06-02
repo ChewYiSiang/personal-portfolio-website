@@ -5,19 +5,19 @@ export function cn(...inputs: ClassValue[]) {
   return clsx(inputs)
 }
 
-/** Map a project status string to Tailwind colour classes. */
+/** Map a project status string to Tailwind colour classes (theme-robust). */
 export function statusColour(status: string): string {
   switch (status) {
     case 'Active':
-      return 'text-green-400 bg-green-400/10 border-green-400/25'
+      return 'text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/30'
     case 'Completed':
-      return 'text-yellow-400 bg-yellow-400/10 border-yellow-400/25'
+      return 'text-amber-600 dark:text-amber-400 bg-amber-500/10 border-amber-500/30'
     case 'In Progress':
-      return 'text-cyber-cyan bg-cyber-cyan/10 border-cyber-cyan/20'
+      return 'text-cyber-cyan bg-cyber-cyan/10 border-cyber-cyan/25'
     case 'Archived':
-      return 'text-gray-400 bg-gray-400/10 border-gray-400/20'
+      return 'text-faint bg-tint border-line'
     default:
-      return 'text-gray-400 bg-gray-400/10 border-gray-400/20'
+      return 'text-faint bg-tint border-line'
   }
 }
 

@@ -10,12 +10,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: '#050505',
-        surface: '#0d0d0d',
-        'surface-2': '#111111',
-        'cyber-cyan': '#818CF8',
-        'cyber-purple': '#818CF8',
-        accent: '#818CF8',
+        // Semantic, theme-aware tokens (driven by CSS variables in globals.css)
+        bg: 'var(--bg)',
+        surface: 'var(--bg-2)',
+        'surface-2': 'var(--bg-2)',
+        content: 'var(--text)',
+        muted: 'var(--text-muted)',
+        faint: 'var(--text-faint)',
+        line: 'var(--border)',
+        tint: 'var(--tint)',
+        // Accent — exposes <alpha-value> so `bg-cyber-cyan/20`, `text-accent`, etc. work
+        accent: 'rgb(var(--accent-ch) / <alpha-value>)',
+        'cyber-cyan': 'rgb(var(--accent-ch) / <alpha-value>)',
+        'cyber-purple': 'rgb(var(--accent-ch) / <alpha-value>)',
       },
       fontFamily: {
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],

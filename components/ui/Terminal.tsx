@@ -44,9 +44,9 @@ export default function Terminal() {
   }, [charIndex, deleting, skillIndex])
 
   return (
-    <div className="glass rounded-xl p-5 font-mono text-xs w-full max-w-[290px]">
+    <div className="rounded-xl p-5 font-mono text-xs w-full max-w-[290px] bg-[#0c0c12] border border-white/10 shadow-[0_10px_34px_rgba(0,0,0,0.4)]">
       {/* Title bar */}
-      <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/5">
+      <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/10">
         <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
         <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
         <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />

@@ -18,7 +18,7 @@ export default function Education() {
           {education.map((entry, i) => (
             <RevealWrapper key={entry.shortName} delay={i * 120} from="left">
               <div
-                className="glass rounded-xl p-6 border border-white/[0.06]"
+                className="glass rounded-xl p-6 border border-line"
                 style={{ borderLeftColor: entry.accent, borderLeftWidth: 2 }}
               >
                 {/* Top row */}
@@ -33,7 +33,7 @@ export default function Education() {
 
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <h3 className="font-display font-bold text-gray-100 text-base">{entry.shortName}</h3>
+                      <h3 className="font-display font-bold text-content text-base">{entry.shortName}</h3>
                       <span
                         className="font-mono text-[9px] px-2 py-0.5 rounded border"
                         style={{ color: entry.accent, background: `${entry.accent}10`, borderColor: `${entry.accent}28` }}
@@ -41,30 +41,30 @@ export default function Education() {
                         {entry.status}
                       </span>
                     </div>
-                    <p className="text-gray-200 text-sm font-medium">{entry.degree}</p>
-                    <p className="text-gray-400 text-xs mt-0.5">{entry.institution}</p>
-                    <p className="font-mono text-[10px] text-gray-400 mt-1">{entry.period}</p>
+                    <p className="text-content text-sm font-medium">{entry.degree}</p>
+                    <p className="text-muted text-xs mt-0.5">{entry.institution}</p>
+                    <p className="font-mono text-[10px] text-muted mt-1">{entry.period}</p>
                   </div>
                 </div>
 
                 {/* Detail columns */}
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <p className="font-mono text-[9px] tracking-[2.5px] uppercase text-gray-500 mb-2">Achievements</p>
+                    <p className="font-mono text-[9px] tracking-[2.5px] uppercase text-faint mb-2">Achievements</p>
                     <ul className="space-y-1.5">
                       {entry.achievements.map((a) => (
-                        <li key={a} className="flex items-start gap-2 text-[12px] text-gray-300 leading-relaxed">
-                          <span className="text-gray-500 flex-shrink-0 mt-0.5">–</span>
+                        <li key={a} className="flex items-start gap-2 text-[12px] text-muted leading-relaxed">
+                          <span className="text-faint flex-shrink-0 mt-0.5">–</span>
                           {a}
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <p className="font-mono text-[9px] tracking-[2.5px] uppercase text-gray-500 mb-2">Key Coursework</p>
+                    <p className="font-mono text-[9px] tracking-[2.5px] uppercase text-faint mb-2">Key Coursework</p>
                     <div className="flex flex-wrap gap-1.5">
                       {entry.courses.map((c) => (
-                        <span key={c} className="font-mono text-[10px] text-gray-400 glass px-2 py-0.5 rounded border border-white/[0.06]">
+                        <span key={c} className="font-mono text-[10px] text-muted bg-tint px-2 py-0.5 rounded border border-line">
                           {c}
                         </span>
                       ))}

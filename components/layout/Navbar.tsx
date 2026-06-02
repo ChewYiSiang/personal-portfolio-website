@@ -3,20 +3,24 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { motion, useScroll } from 'framer-motion'
 import { personal } from '@/data/personal'
+import ThemeToggle from '@/components/ui/ThemeToggle'
 
 const NAV_LINKS = [
-  { label: 'Stack',      href: '#skills'     },
-  { label: 'Projects',   href: '#projects'   },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Lab',        href: '#lab'        },
-  { label: 'Education',  href: '#education'  },
+  { label: 'Stack',      href: '#skills'         },
+  { label: 'Certs',      href: '#certifications' },
+  { label: 'Projects',   href: '#projects'       },
+  { label: 'Experience', href: '#experience'     },
+  { label: 'Lab',        href: '#lab'            },
+  { label: 'Education',  href: '#education'      },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { scrollYProgress } = useScroll()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -46,7 +50,7 @@ export default function Navbar() {
         <a
           href="#hero"
           onClick={(e) => scrollTo(e, '#hero')}
-          className="font-display font-bold text-[15px] text-gray-100 hover:text-cyber-cyan transition-colors flex items-center gap-2"
+          className="font-display font-bold text-[15px] text-content hover:text-cyber-cyan transition-colors flex items-center gap-2"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-cyber-cyan to-cyber-purple" />
           {personal.name}
@@ -59,12 +63,13 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => scrollTo(e, link.href)}
-              className="text-gray-300 hover:text-cyber-cyan text-[12px] tracking-wide transition-colors relative group"
+              className="text-muted hover:text-cyber-cyan text-[12px] tracking-wide transition-colors relative group"
             >
               {link.label}
               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gradient-to-r from-cyber-cyan to-cyber-purple group-hover:w-full transition-all duration-300" />
             </a>
           ))}
+          <ThemeToggle />
           <a
             href="#contact"
             onClick={(e) => scrollTo(e, '#contact')}
@@ -74,28 +79,37 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
-          aria-label="Toggle menu"
-        >
-          {[0, 1, 2].map((i) => (
-            <span
-              key={i}
-              className={`block w-5 h-px bg-cyber-cyan transition-all duration-300 ${
-                menuOpen && i === 0 ? 'rotate-45 translate-y-2' :
-                menuOpen && i === 1 ? 'opacity-0' :
-                menuOpen && i === 2 ? '-rotate-45 -translate-y-2' : ''
-              }`}
-            />
-          ))}
-        </button>
+        {/* Mobile controls */}
+        <div className="md:hidden flex items-center gap-1.5">
+          <ThemeToggle />
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex flex-col gap-1.5 p-2"
+            aria-label="Toggle menu"
+          >
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                className={`block w-5 h-px bg-cyber-cyan transition-all duration-300 ${
+                  menuOpen && i === 0 ? 'rotate-45 translate-y-2' :
+                  menuOpen && i === 1 ? 'opacity-0' :
+                  menuOpen && i === 2 ? '-rotate-45 -translate-y-2' : ''
+                }`}
+              />
+            ))}
+          </button>
+        </div>
       </div>
+
+      {/* Scroll progress bar */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-px origin-left bg-gradient-to-r from-cyber-cyan to-cyber-purple"
+        style={{ scaleX: scrollYProgress, opacity: scrolled ? 1 : 0 }}
+      />
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden nav-blur border-t border-white/5 overflow-hidden transition-all duration-300 ${
+        className={`md:hidden nav-blur border-t border-line overflow-hidden transition-all duration-300 ${
           menuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
@@ -105,7 +119,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => scrollTo(e, link.href)}
-              className="text-gray-300 hover:text-cyber-cyan text-sm transition-colors"
+              className="text-muted hover:text-cyber-cyan text-sm transition-colors"
             >
               {link.label}
             </a>

@@ -1,22 +1,18 @@
-'use client'
-
-import { useState } from 'react'
 import RevealWrapper from '@/components/ui/RevealWrapper'
 import SectionHeading from '@/components/ui/SectionHeading'
+import TechIcon from '@/components/ui/TechIcon'
 import { skills } from '@/data/skills'
 
 const ACCENTS = [
-  '#818CF8', // Languages               — indigo
-  '#34D399', // AI / ML                 — emerald
-  '#F472B6', // Data Analysis & Viz     — rose
-  '#FBBF24', // Data Engineering        — amber
-  '#60A5FA', // Cloud, DevOps & MLOps   — blue
-  '#A78BFA', // Developer Tools         — violet
+  '#6366F1', // Languages
+  '#10B981', // AI / ML
+  '#EC4899', // Data Analysis & Viz
+  '#F59E0B', // Data Engineering
+  '#3B82F6', // Cloud, DevOps & MLOps
+  '#8B5CF6', // Developer Tools
 ]
 
 export default function Skills() {
-  const [activeIndex, setActiveIndex] = useState(1)
-
   return (
     <section id="skills" className="py-24 px-6 cyber-grid">
       <div className="max-w-6xl mx-auto">
@@ -28,87 +24,44 @@ export default function Skills() {
           />
         </RevealWrapper>
 
-        <RevealWrapper delay={100}>
-          {/* Accordion — horizontally scrollable on small screens */}
-          <div className="overflow-x-auto pb-2 -mx-1 px-1">
-            <div className="flex flex-row gap-2.5 h-[360px] min-w-max">
-              {skills.map((category, i) => {
-                const accent = ACCENTS[i] ?? '#818CF8'
-                const isActive = i === activeIndex
+        {/* 2 × 3 grid — every tool visible at a glance */}
+        <div className="grid sm:grid-cols-2 gap-4">
+          {skills.map((category, i) => {
+            const accent = ACCENTS[i] ?? '#6366F1'
+            return (
+              <RevealWrapper key={category.label} delay={i * 80}>
+                <div className="relative h-full glass rounded-2xl p-6 border border-line overflow-hidden">
+                  {/* Accent top line */}
+                  <span
+                    className="absolute top-0 left-0 right-0 h-[2px]"
+                    style={{ background: `linear-gradient(90deg, ${accent}, transparent)` }}
+                  />
 
-                return (
-                  <div
-                    key={category.label}
-                    onMouseEnter={() => setActiveIndex(i)}
-                    className="relative flex-shrink-0 rounded-2xl overflow-hidden cursor-pointer border border-white/[0.07] transition-all duration-700"
-                    style={{
-                      width: isActive ? 460 : 52,
-                      background: isActive
-                        ? `linear-gradient(160deg, ${accent}14 0%, ${accent}06 100%)`
-                        : 'rgba(255,255,255,0.03)',
-                      transitionTimingFunction: 'cubic-bezier(0.25,1,0.5,1)',
-                      borderColor: isActive ? `${accent}28` : 'rgba(255,255,255,0.07)',
-                    }}
-                  >
-                    {/* Accent top line */}
-                    <div
-                      className="absolute top-0 left-0 right-0 h-[2px] transition-opacity duration-700"
-                      style={{ background: accent, opacity: isActive ? 1 : 0.3 }}
-                    />
-
-                    {/* Collapsed — vertical label */}
-                    <div
-                      className="absolute inset-0 flex items-center justify-center transition-opacity duration-200"
-                      style={{
-                        opacity: isActive ? 0 : 1,
-                        pointerEvents: isActive ? 'none' : 'auto',
-                      }}
+                  <div className="flex items-center gap-2.5 mb-5">
+                    <span className="w-1.5 h-1.5 rounded-full" style={{ background: accent }} />
+                    <h3
+                      className="text-[10.5px] font-semibold tracking-[2.5px] uppercase"
+                      style={{ color: accent }}
                     >
-                      <span
-                        className="text-[9.5px] font-medium tracking-[3px] uppercase whitespace-nowrap -rotate-90"
-                        style={{ color: accent }}
-                      >
-                        {category.label}
-                      </span>
-                    </div>
-
-                    {/* Expanded — label + chips */}
-                    <div
-                      className="absolute inset-0 p-5 flex flex-col transition-opacity duration-300"
-                      style={{
-                        opacity: isActive ? 1 : 0,
-                        transitionDelay: isActive ? '160ms' : '0ms',
-                        pointerEvents: isActive ? 'auto' : 'none',
-                      }}
-                    >
-                      <p
-                        className="text-[9.5px] font-medium tracking-[3px] uppercase mb-4 flex-shrink-0"
-                        style={{ color: accent }}
-                      >
-                        {category.label}
-                      </p>
-
-                      <div className="flex flex-wrap gap-2 content-start">
-                        {category.chips.map((chip) => (
-                          <span
-                            key={chip.name}
-                            className="text-[11px] px-2.5 py-1 rounded-lg border text-gray-200 flex-shrink-0"
-                            style={{
-                              background: `${accent}0d`,
-                              borderColor: `${accent}28`,
-                            }}
-                          >
-                            {chip.name}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                      {category.label}
+                    </h3>
                   </div>
-                )
-              })}
-            </div>
-          </div>
-        </RevealWrapper>
+
+                  <div className="flex flex-wrap gap-x-5 gap-y-3.5">
+                    {category.chips.map((chip) => (
+                      <div key={chip.name} className="flex items-center gap-2.5">
+                        <TechIcon icon={chip.icon} name={chip.name} />
+                        <span className="text-[13px] font-medium text-content whitespace-nowrap">
+                          {chip.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </RevealWrapper>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

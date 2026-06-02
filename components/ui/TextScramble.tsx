@@ -93,7 +93,7 @@ export function TextScramble({
               isHovering ? 'scale-x-100' : 'scale-x-0'
             )}
           />
-          <span className="absolute inset-0 bg-white/10" />
+          <span className="absolute inset-0 bg-line" />
         </span>
       )}
     </div>

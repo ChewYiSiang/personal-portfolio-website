@@ -17,10 +17,18 @@ export const metadata: Metadata = {
   },
 }
 
+/**
+ * Sets the theme class before first paint so there's no light→dark flash.
+ * Default is the cream (light) theme; we only opt into dark if the visitor
+ * previously chose it.
+ */
+const themeScript = `(function(){try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})()`
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {/* KaTeX for LaTeX rendering in MDX project pages */}
         <link
           rel="stylesheet"
@@ -29,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
         />
       </head>
-      <body className="bg-[#050505] text-gray-100 antialiased overflow-x-hidden">
+      <body className="bg-bg text-content antialiased overflow-x-hidden">
         <ParticlesBackground />
         <Navbar />
         <main className="relative z-10">{children}</main>

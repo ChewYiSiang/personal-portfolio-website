@@ -45,17 +45,17 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             className="modal-box"
           >
             {/* ── Header ── */}
-            <div className="sticky top-0 z-10 bg-[#080808] px-6 pt-5 pb-4 border-b border-white/5 flex items-start justify-between gap-3">
+            <div className="sticky top-0 z-10 bg-surface px-6 pt-5 pb-4 border-b border-line flex items-start justify-between gap-3">
               <div>
-                <p className="font-mono text-[9px] tracking-[3px] uppercase text-gray-400 mb-1">
+                <p className="font-mono text-[9px] tracking-[3px] uppercase text-muted mb-1">
                   {project.subtitle} · {project.status}
                 </p>
-                <h2 className="font-display font-extrabold text-xl text-gray-100">{project.title}</h2>
+                <h2 className="font-display font-extrabold text-xl text-content">{project.title}</h2>
               </div>
               <button
                 onClick={onClose}
                 aria-label="Close modal"
-                className="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 border border-white/8 text-gray-500 hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-400 transition-all flex items-center justify-center text-sm"
+                className="flex-shrink-0 w-8 h-8 rounded-full bg-tint border border-line text-faint hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-400 transition-all flex items-center justify-center text-sm"
               >
                 ✕
               </button>
@@ -65,13 +65,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <div className="p-6 space-y-6">
               {/* Image placeholder */}
               <div
-                className="w-full h-40 rounded-xl border border-white/5 flex items-center justify-center relative overflow-hidden"
+                className="w-full h-40 rounded-xl border border-line flex items-center justify-center relative overflow-hidden"
                 style={{ background: `linear-gradient(135deg, ${project.gradientFrom}, ${project.gradientTo})` }}
               >
-                <span className="font-display font-black text-7xl opacity-[0.09] gradient-text select-none">
+                <span className="font-display font-black text-7xl opacity-[0.12] gradient-text select-none">
                   {project.number}
                 </span>
-                <span className="absolute bottom-2.5 font-mono text-[9px] text-gray-500">
+                <span className="absolute bottom-2.5 font-mono text-[9px] text-faint">
                   [ project image placeholder ]
                 </span>
               </div>
@@ -85,16 +85,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               {/* Overview */}
               <section>
-                <p className="font-mono text-[9px] tracking-[3px] uppercase text-gray-400 mb-2">Overview</p>
-                <p className="text-sm text-gray-300 leading-relaxed">{project.longDescription}</p>
+                <p className="font-mono text-[9px] tracking-[3px] uppercase text-muted mb-2">Overview</p>
+                <p className="text-sm text-muted leading-relaxed">{project.longDescription}</p>
               </section>
 
               {/* Highlights */}
               <section>
-                <p className="font-mono text-[9px] tracking-[3px] uppercase text-gray-400 mb-3">Key Highlights</p>
+                <p className="font-mono text-[9px] tracking-[3px] uppercase text-muted mb-3">Key Highlights</p>
                 <ul className="space-y-2">
                   {project.highlights.map((h) => (
-                    <li key={h} className="flex items-start gap-2 font-mono text-xs text-gray-300">
+                    <li key={h} className="flex items-start gap-2 font-mono text-xs text-muted">
                       <span className="text-cyber-cyan mt-0.5 flex-shrink-0">▸</span>
                       {h}
                     </li>
@@ -104,12 +104,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               {/* Tech stack */}
               <section>
-                <p className="font-mono text-[9px] tracking-[3px] uppercase text-gray-400 mb-3">Tech Stack</p>
+                <p className="font-mono text-[9px] tracking-[3px] uppercase text-muted mb-3">Tech Stack</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="font-mono text-[10px] px-2.5 py-1 rounded-md border border-cyber-cyan/15 text-cyber-cyan bg-cyber-cyan/5"
+                      className="font-mono text-[10px] px-2.5 py-1 rounded-md border border-cyber-cyan/20 text-cyber-cyan bg-cyber-cyan/5"
                     >
                       {tag}
                     </span>
@@ -119,13 +119,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               {/* Links */}
               {(project.github || project.demo) && (
-                <div className="flex gap-3 pt-4 border-t border-white/5">
+                <div className="flex gap-3 pt-4 border-t border-line">
                   {project.github && (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-xs px-4 py-2 rounded-lg border border-white/10 text-gray-300 hover:text-white hover:border-white/25 transition-all"
+                      className="font-mono text-xs px-4 py-2 rounded-lg border border-line text-muted hover:text-content hover:border-cyber-cyan/40 transition-all"
                     >
                       ⌥ GitHub Source
                     </a>
@@ -135,7 +135,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-mono text-xs px-4 py-2 rounded-lg border border-cyber-cyan/28 bg-cyber-cyan/5 text-cyber-cyan hover:shadow-[0_0_14px_rgba(0,245,255,0.2)] transition-all"
+                      className="font-mono text-xs px-4 py-2 rounded-lg border border-cyber-cyan/30 bg-cyber-cyan/5 text-cyber-cyan hover:shadow-[0_0_14px_rgb(var(--accent-ch)_/_0.25)] transition-all"
                     >
                       → Live Demo
                     </a>

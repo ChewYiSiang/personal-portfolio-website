@@ -2,7 +2,7 @@ import { personal } from '@/data/personal'
 
 export default function Footer() {
   return (
-    <footer className="py-8 text-center font-mono text-xs text-gray-400 border-t border-white/[0.04]">
+    <footer className="py-8 text-center font-mono text-xs text-muted border-t border-line">
       <p>
         <span className="text-cyber-cyan">{'<'}</span>
         {' '}{personal.name} · Data &amp; Intelligence Portfolio{' '}
