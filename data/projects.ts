@@ -159,5 +159,32 @@ export const projects: Project[] = [
     gradientTo: 'rgba(74,222,128,0.04)',
     featured: true,
   },
+    {
+    slug: 'sg-sentiment-roberta',
+    number: '07',
+    title: 'SG Sentiment Analysis (RoBERTa)',
+    subtitle: 'NLP + MLOps (self-initiated project)',
+    description:
+      'Fine-tuned sentiment classifier on Singapore-specific text using QLoRA, with experiment tracking via Weights & Biases and deployment via FastAPI + Docker.',
+    longDescription:
+      'Most pre-trained sentiment models are trained on American English Twitter data. This project fine-tunes a transformer on locally scraped Singaporean forum text (Hardwarezone) augmented with a public tweet sentiment dataset, improving generalisation on Singlish and local language patterns. The project involved data preprocessing, model training, and deployment strategies to ensure accurate and efficient sentiment classification. Implemented CI/CD workflows with GitHub Actions to automate testing and deployment processes, ensuring the service remains reliable and scalable.',
+    highlights: [
+      'Fine-tuning: HuggingFace Transformers, PEFT, QLoRA, bitsandbytes',
+      'Experiment tracking: Weights & Biases',
+      'Serving: FastAPI, uvicorn, Docker, docker-compose',
+      'CI/CD: GitHub Actions (runs 20 tests on every push)',
+      'Data: HuggingFace datasets, Hardwarezone (scraped), Gemma2:2b labeller',
+      'Testing: pytest (30 tests across data pipeline, preprocessing, inference)',
+      'Demo: Gradio on HuggingFace Spaces'
+    ],
+    tags: ['Python', 'FastAPI', 'RoBERTa', 'HuggingFace', 'Docker', 'Kubernetes', 'CI/CD', 'MLOps', 'Github Actions'],
+    status: 'Completed',
+    github: 'https://github.com/ChewYiSiang/SG-sentiment-roberta',
+    demo: 'https://huggingface.co/spaces/Yi-Siang/sg-sentiment-roberta',
+    image: '',
+    gradientFrom: 'rgba(0,245,255,0.04)',
+    gradientTo: 'rgba(74,222,128,0.04)',
+    featured: true,
+  },
 
 ]
