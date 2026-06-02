@@ -1,14 +1,21 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 interface RevealWrapperProps {
   children: React.ReactNode
   className?: string
   delay?: number
-  /** Direction to slide in from */
   from?: 'bottom' | 'left' | 'right'
+}
+
+const ease = [0.16, 1, 0.3, 1] as const
+
+const variants = {
+  bottom: { hidden: { opacity: 0, y: 28 },        show: { opacity: 1, y: 0 } },
+  left:   { hidden: { opacity: 0, x: -28, y: 0 }, show: { opacity: 1, x: 0, y: 0 } },
+  right:  { hidden: { opacity: 0, x: 28, y: 0 },  show: { opacity: 1, x: 0, y: 0 } },
 }
 
 export default function RevealWrapper({
@@ -17,37 +24,15 @@ export default function RevealWrapper({
   delay = 0,
   from = 'bottom',
 }: RevealWrapperProps) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect() } },
-      { threshold: 0.1 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  const hidden = {
-    bottom: 'opacity-0 translate-y-7',
-    left:   'opacity-0 -translate-x-7',
-    right:  'opacity-0 translate-x-7',
-  }[from]
-
   return (
-    <div
-      ref={ref}
-      className={cn(
-        'transition-all duration-700',
-        visible ? 'opacity-100 translate-x-0 translate-y-0' : hidden,
-        className
-      )}
-      style={{ transitionDelay: `${delay}ms` }}
+    <motion.div
+      initial={variants[from].hidden}
+      whileInView={variants[from].show}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.65, ease, delay: delay / 1000 }}
+      className={cn(className)}
     >
       {children}
-    </div>
+    </motion.div>
   )
 }

@@ -1,16 +1,5 @@
 import type { SkillCategory } from '@/types'
 
-/**
- * TECH STACK
- * ──────────
- * Each category renders as a horizontal chip carousel.
- * Add/remove chips freely — the carousel handles overflow automatically.
- *
- * Fields:
- *   label — Category heading shown above the row
- *   chips — Array of { icon: emoji, name: display string }
- */
-
 export const skills: SkillCategory[] = [
   {
     label: 'Languages',
@@ -32,6 +21,18 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
+    label: 'Data Analysis & Visualization',
+    chips: [
+      { icon: '🐼', name: 'Pandas' },
+      { icon: '🔢', name: 'NumPy' },
+      { icon: '📊', name: 'Matplotlib' },
+      { icon: '🌊', name: 'Seaborn' },
+      { icon: '📈', name: 'Plotly' },
+      { icon: '📉', name: 'Tableau' },
+      { icon: '📡', name: 'Power BI' },
+    ],
+  },
+  {
     label: 'Data Engineering',
     chips: [
       { icon: '🔧', name: 'dbt' },
@@ -39,15 +40,20 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
-    label: 'Tools & Infra',
+    label: 'Cloud, DevOps & MLOps',
+    chips: [
+      { icon: '🌿', name: 'Git' },
+      { icon: '🐳', name: 'Docker' },
+      { icon: '☁️', name: 'GitHub Actions' },
+      { icon: '🔄', name: 'Kubernetes' },
+    ],
+  },
+  {
+    label: 'Developer Tools',
     chips: [
       { icon: '📓', name: 'Jupyter' },
-      { icon: '🐳', name: 'Docker' },
-      { icon: '📈', name: 'Tableau' },
-      { icon: '📡', name: 'PowerBI' },
-      { icon: '🌿', name: 'Git' },
-      { icon: '🤖', name: 'AI' },
-      { icon: '🧑‍💻', name: 'Claude' },
+      { icon: '💻', name: 'VS Code' },
+      { icon: '🧑‍💻', name: 'Claude Code' },
     ],
   },
 ]

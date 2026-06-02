@@ -75,7 +75,7 @@ export const labEvents: LabEvent[] = [
     badge: 'Participant',
     description:
       'First hackathon experience! Collaborated with 4 teammates to build an AI wellness chatbot prototype in 48 hours. First dive into vibecoding',
-    accent: '#00f5ff',
+    accent: 'rgb(45,212,191)',
   },
   // ─── Add more events below ────────────────────────────────────────────────
   // {

@@ -7,7 +7,7 @@ export default function Experience() {
     <section id="experience" className="py-24 px-6 cyber-grid">
       <div className="max-w-6xl mx-auto">
         <RevealWrapper>
-          <SectionHeading label="// 04. Experience" title="Work Experience" />
+          <SectionHeading label="Experience" title="Work Experience" />
         </RevealWrapper>
 
         {/* Timeline */}
@@ -59,8 +59,8 @@ export default function Experience() {
                     {/* Highlights */}
                     <ul className="space-y-1.5 mb-4">
                       {entry.highlights.map((h) => (
-                        <li key={h} className="flex items-start gap-2 font-mono text-[11px] text-gray-300">
-                          <span className="text-cyber-cyan flex-shrink-0 mt-0.5">▸</span>
+                        <li key={h} className="flex items-start gap-2 text-[12px] text-gray-300 leading-relaxed">
+                          <span className="text-gray-500 flex-shrink-0 mt-0.5">–</span>
                           {h}
                         </li>
                       ))}
